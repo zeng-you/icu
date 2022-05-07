@@ -1,7 +1,0 @@
-# 开发环境
-spring:
-  datasource:
-    username: postgres
-    password: postgres
-    driver-class-name: com.p6spy.engine.spy.P6SpyDriver
-    url: jdbc:p6spy:postgresql://127.0.0.1:5432/icu
