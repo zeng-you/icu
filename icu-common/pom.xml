@@ -15,6 +15,7 @@
         <module>icu-common-spring</module>
         <module>icu-common-tool</module>
         <module>icu-common-data</module>
+        <module>icu-common-gateway</module>
     </modules>
 
 
