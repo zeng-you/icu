@@ -22,6 +22,16 @@
            <artifactId>mybatis-plus</artifactId>
            <version>3.5.1</version>
        </dependency>
+       <dependency>
+           <groupId>com.baomidou</groupId>
+           <artifactId>mybatis-plus-generator</artifactId>
+           <version>3.5.2</version>
+       </dependency>
+       <dependency>
+           <groupId>org.jetbrains</groupId>
+           <artifactId>annotations</artifactId>
+           <version>23.0.0</version>
+       </dependency>
    </dependencies>
 
 </project>
