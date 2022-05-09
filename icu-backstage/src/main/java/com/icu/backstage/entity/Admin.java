@@ -1,11 +1,13 @@
 package com.icu.backstage.entity;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-
-import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * <p>
@@ -15,9 +17,10 @@ import java.time.LocalDateTime;
  * @author 曾有
  * @since 2022-05-09
  */
+@Getter
+@Setter
 public class Admin implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -61,11 +64,13 @@ public class Admin implements Serializable {
     /**
      * 添加时间
      */
+    @TableField(fill = FieldFill.INSERT)
     private LocalDateTime addTime;
 
     /**
      * 编辑时间
      */
+    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime editTime;
 
     /**
@@ -89,135 +94,4 @@ public class Admin implements Serializable {
     private String status;
 
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Long getDepartmentId() {
-        return departmentId;
-    }
-
-    public void setDepartmentId(Long departmentId) {
-        this.departmentId = departmentId;
-    }
-
-    public LocalDateTime getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(LocalDateTime addTime) {
-        this.addTime = addTime;
-    }
-
-    public LocalDateTime getEditTime() {
-        return editTime;
-    }
-
-    public void setEditTime(LocalDateTime editTime) {
-        this.editTime = editTime;
-    }
-
-    public Long getAddAdmin() {
-        return addAdmin;
-    }
-
-    public void setAddAdmin(Long addAdmin) {
-        this.addAdmin = addAdmin;
-    }
-
-    public Long getEditAdmin() {
-        return editAdmin;
-    }
-
-    public void setEditAdmin(Long editAdmin) {
-        this.editAdmin = editAdmin;
-    }
-
-    public String getDel() {
-        return del;
-    }
-
-    public void setDel(String del) {
-        this.del = del;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "Admin{" +
-        "id=" + id +
-        ", pwd=" + pwd +
-        ", salt=" + salt +
-        ", phone=" + phone +
-        ", avatar=" + avatar +
-        ", name=" + name +
-        ", email=" + email +
-        ", departmentId=" + departmentId +
-        ", addTime=" + addTime +
-        ", editTime=" + editTime +
-        ", addAdmin=" + addAdmin +
-        ", editAdmin=" + editAdmin +
-        ", del=" + del +
-        ", status=" + status +
-        "}";
-    }
 }

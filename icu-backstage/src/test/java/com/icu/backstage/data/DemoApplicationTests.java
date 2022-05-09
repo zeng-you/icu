@@ -38,15 +38,16 @@ class DemoApplicationTests {
 
         FastAutoGenerator.create(DATA_SOURCE_CONFIG)
                 // 全局配置
-                .globalConfig((scanner, builder) -> builder.author(scanner.apply("曾有"))
+                .globalConfig((scanner, builder) -> builder.fileOverride()
+                        .author("曾有")
                         .outputDir("E:\\www\\java")
                 )
 
                 // 包配置
-                .packageConfig((scanner, builder) -> builder.parent(scanner.apply("com.icu.backstage")))
+                .packageConfig((scanner, builder) -> builder.parent("com.icu.backstage"))
 
                 // 策略配置
-                .strategyConfig((scanner, builder) -> builder.addInclude(getTables(scanner.apply("admin")))
+                .strategyConfig((scanner, builder) -> builder.addInclude(getTables("admin"))
                         .controllerBuilder()
                         .enableRestStyle()
                         .enableHyphenStyle()
@@ -61,7 +62,6 @@ class DemoApplicationTests {
                 .execute();
 
     }
-
 
     // 处理 all 情况
     protected static List<String> getTables(String tables) {
