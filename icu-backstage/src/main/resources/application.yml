@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: icu-admin
+    name: icu-backstage
   config:
     activate:
       on-profile: dev

@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>icu-admin</artifactId>
+    <artifactId>icu-backstage</artifactId>
 
     <dependencies>
         <dependency>
@@ -34,6 +34,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.6.7</version>
             </plugin>
         </plugins>
     </build>
