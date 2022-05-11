@@ -29,8 +29,6 @@
         </dependency>
     </dependencies>
 
-
-
     <build>
         <plugins>
             <plugin>
@@ -38,21 +36,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.6.7</version>
             </plugin>
-
         </plugins>
-
-        <resources>
-            <resource>
-                <!-- xml放在java目录下-->
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-            <!--指定资源的位置（xml放在resources下，可以不用指定）-->
-            <resource>
-                <directory>src/main/resources/xml</directory>
-            </resource>
-        </resources>
     </build>
 </project>

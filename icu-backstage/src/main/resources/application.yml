@@ -1,8 +1,20 @@
 server:
   port: 8081
+
 spring:
   application:
     name: icu-backstage
-  config:
-    activate:
-      on-profile: dev
+
+  profiles:
+    active: dev
+
+# orm config
+mybatis-plus:
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:mapper/*Mapper.xml
+  global-config:
+    banner: false
+    db-config:
+      table-underline: true
