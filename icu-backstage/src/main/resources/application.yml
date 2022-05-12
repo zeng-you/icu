@@ -1,14 +1,10 @@
 server:
   port: 8081
-
 spring:
   application:
     name: icu-backstage
-
   profiles:
     active: dev
-
-# orm config
 mybatis-plus:
   configuration:
     cache-enabled: false
