@@ -1,5 +1,6 @@
 package com.icu.backstage.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,13 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
  * </p>
  *
  * @author 曾有
- * @since 2022-05-09
+ * @since 2022-05-14
  */
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-
-
-
 
 }

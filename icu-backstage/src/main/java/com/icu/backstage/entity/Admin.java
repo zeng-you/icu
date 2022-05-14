@@ -4,12 +4,12 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-
-import java.io.Serial;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 /**
  * <p>
@@ -17,13 +17,13 @@ import lombok.Setter;
  * </p>
  *
  * @author 曾有
- * @since 2022-05-09
+ * @since 2022-05-14
  */
 @Getter
 @Setter
+@Accessors(chain = true)
 public class Admin implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -73,7 +73,7 @@ public class Admin implements Serializable {
     /**
      * 编辑时间
      */
-    @TableField(fill = FieldFill.UPDATE)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
 
     /**
@@ -89,6 +89,7 @@ public class Admin implements Serializable {
     /**
      * 删除（0：否，1：是）
      */
+    @TableLogic(value = "0", delval = "1")
     private String del;
 
     /**

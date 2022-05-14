@@ -20,7 +20,7 @@ import static org.springframework.boot.test.mock.mockito.MockReset.before;
  */
 @SpringBootTest
 @Slf4j
-class DemoApplicationTests {
+class MybatisApplicationTests {
 
     /**
      * 数据源配置
@@ -52,10 +52,12 @@ class DemoApplicationTests {
                         .enableRestStyle()
                         .enableHyphenStyle()
                         .entityBuilder()
+                        .enableChainModel()
                         .enableLombok()
+                        .logicDeletePropertyName("del")
                         .addTableFills(
                                 new Column("add_time", FieldFill.INSERT),
-                                new Column("edit_time", FieldFill.UPDATE)
+                                new Column("edit_time", FieldFill.INSERT_UPDATE)
                         )
                 )
 
