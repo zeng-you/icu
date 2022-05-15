@@ -12,7 +12,7 @@
  Target Server Version : 140002
  File Encoding         : 65001
 
- Date: 09/05/2022 18:00:41
+ Date: 15/05/2022 22:38:37
 */
 
 
@@ -66,13 +66,19 @@ COMMENT ON TABLE "public"."admin" IS '管理员';
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
+INSERT INTO "public"."admin" VALUES (1, '', '', '15989788839', '', '', '', 0, NULL, NULL, 0, 0, '0', '0');
 
 -- ----------------------------
 -- Alter sequences owned by
 -- ----------------------------
 ALTER SEQUENCE "public"."admin_id_seq"
 OWNED BY "public"."admin"."id";
-SELECT setval('"public"."admin_id_seq"', 1, false);
+SELECT setval('"public"."admin_id_seq"', 1, true);
+
+-- ----------------------------
+-- Uniques structure for table admin
+-- ----------------------------
+ALTER TABLE "public"."admin" ADD CONSTRAINT "admin_phone_del_key" UNIQUE ("phone", "del");
 
 -- ----------------------------
 -- Primary Key structure for table admin
