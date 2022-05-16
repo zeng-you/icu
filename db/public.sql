@@ -12,7 +12,7 @@
  Target Server Version : 140002
  File Encoding         : 65001
 
- Date: 15/05/2022 22:38:37
+ Date: 16/05/2022 11:26:34
 */
 
 
@@ -34,7 +34,6 @@ DROP TABLE IF EXISTS "public"."admin";
 CREATE TABLE "public"."admin" (
   "id" int8 NOT NULL DEFAULT nextval('admin_id_seq'::regclass),
   "pwd" varchar(255) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
-  "salt" varchar(255) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
   "phone" varchar(11) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
   "avatar" varchar(255) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
   "name" varchar(64) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
@@ -49,7 +48,6 @@ CREATE TABLE "public"."admin" (
 )
 ;
 COMMENT ON COLUMN "public"."admin"."pwd" IS '密码';
-COMMENT ON COLUMN "public"."admin"."salt" IS '盐';
 COMMENT ON COLUMN "public"."admin"."phone" IS '手机号码';
 COMMENT ON COLUMN "public"."admin"."avatar" IS '头像';
 COMMENT ON COLUMN "public"."admin"."name" IS '姓名';
@@ -66,7 +64,7 @@ COMMENT ON TABLE "public"."admin" IS '管理员';
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO "public"."admin" VALUES (1, '', '', '15989788839', '', '', '', 0, NULL, NULL, 0, 0, '0', '0');
+INSERT INTO "public"."admin" VALUES (1, '92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e', '15989788839', '', '', '', 0, NULL, NULL, 0, 0, '0', '0');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -74,11 +72,6 @@ INSERT INTO "public"."admin" VALUES (1, '', '', '15989788839', '', '', '', 0, NU
 ALTER SEQUENCE "public"."admin_id_seq"
 OWNED BY "public"."admin"."id";
 SELECT setval('"public"."admin_id_seq"', 1, true);
-
--- ----------------------------
--- Uniques structure for table admin
--- ----------------------------
-ALTER TABLE "public"."admin" ADD CONSTRAINT "admin_phone_del_key" UNIQUE ("phone", "del");
 
 -- ----------------------------
 -- Primary Key structure for table admin

@@ -1,5 +1,6 @@
 package com.icu.backstage.controller;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import com.icu.backstage.entity.Admin;
 import com.icu.backstage.service.IAdminService;
 import com.icu.common.tool.util.R;
@@ -25,11 +26,12 @@ public class AdminController {
     private IAdminService iAdminService;
 
     @PostMapping("login")
-    public R<Admin> login() {
+    public R<Object> login() {
 
         Admin adminInfo = iAdminService.getOne(null);
 
-        return R.ok(adminInfo);
+        return R.ok(SaSecureUtil.sha256("888888"));
+      //  return R.ok(adminInfo);
     }
 
 }

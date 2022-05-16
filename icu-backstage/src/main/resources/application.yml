@@ -1,19 +1,18 @@
 server:
   port: 8081
+
 spring:
   application:
     name: icu-backstage
   profiles:
-    active: dev
+    active: test
+
 mybatis-plus:
-  configuration:
-    cache-enabled: false
-    map-underscore-to-camel-case: true
-  mapper-locations: classpath:mapper/*Mapper.xml
   global-config:
-    banner: false
     db-config:
-      table-underline: true
+      logic-delete-field: del
 
-
-
+# Logger Config
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: debug

@@ -27,6 +27,11 @@
             <artifactId>icu-common-tool</artifactId>
             <version>1.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.icu</groupId>
+            <artifactId>icu-common-auth</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
     <build>
