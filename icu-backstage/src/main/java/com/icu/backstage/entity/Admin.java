@@ -37,11 +37,6 @@ public class Admin implements Serializable {
     private String pwd;
 
     /**
-     * 盐
-     */
-    private String salt;
-
-    /**
      * 手机号码
      */
     private String phone;

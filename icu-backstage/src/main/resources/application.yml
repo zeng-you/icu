@@ -6,13 +6,23 @@ spring:
     name: icu-backstage
   profiles:
     active: test
+  redis:
+    database: 1
+    host: 127.0.0.1
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: -1ms
 
 mybatis-plus:
   global-config:
     db-config:
       logic-delete-field: del
 
-# Logger Config
+sa-token:
+  jwt-secret-key: icu-backstage
+
 logging:
   level:
     com.baomidou.mybatisplus.samples: debug
