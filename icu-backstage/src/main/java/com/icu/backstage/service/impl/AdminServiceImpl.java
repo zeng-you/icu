@@ -43,7 +43,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
                 .setName(adminOne.getName())
                 .setEmail(adminOne.getEmail())
                 .setStatus(adminOne.getStatus());
-        
+
         return R.ok(adminVO);
     }
 
