@@ -1,11 +1,11 @@
 package com.icu.backstage.controller;
 
-import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
-import com.icu.backstage.entity.Admin;
+import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.service.IAdminService;
 import com.icu.common.tool.util.R;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,12 +27,8 @@ public class AdminController {
     private IAdminService iAdminService;
 
     @PostMapping("login")
-    public R<Object> login() {
-
-        Admin adminInfo = iAdminService.getOne(null);
-
-        return R.ok(SaSecureUtil.sha256("888888"));
-      //  return R.ok(adminInfo);
+    public R<Object> login(@RequestBody LoginParam param) {
+        return iAdminService.login(param);
     }
 
     // 测试登录，浏览器访问： http://localhost:8081/user/doLogin?username=zhang&password=123456
