@@ -2,6 +2,7 @@ package com.icu.backstage.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import com.icu.backstage.entity.param.admin.LoginParam;
+import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.service.IAdminService;
 import com.icu.common.tool.util.R;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,7 +28,7 @@ public class AdminController {
     private IAdminService iAdminService;
 
     @PostMapping("login")
-    public R<Object> login(@RequestBody LoginParam param) {
+    public R<AdminVO> login(@RequestBody LoginParam param) {
         return iAdminService.login(param);
     }
 

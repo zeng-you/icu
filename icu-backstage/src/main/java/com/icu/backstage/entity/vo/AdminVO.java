@@ -55,4 +55,9 @@ public class AdminVO  implements Serializable {
      */
     private String status;
 
+    /**
+     * 令牌
+     */
+    private String token;
+
 }

@@ -1,7 +1,9 @@
 package com.icu.backstage.service.impl;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
-import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.icu.backstage.entity.Admin;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.mapper.AdminMapper;
@@ -23,9 +25,9 @@ import org.springframework.stereotype.Service;
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements IAdminService {
 
     @Override
-    public R<Object> login(LoginParam param) {
+    public R<AdminVO> login(LoginParam param) {
 
-        Admin adminOne = getOne(Wrappers.<Admin>lambdaQuery().eq(Admin::getPhone, param.getPhone()));
+        Admin adminOne = getOne(new QueryWrapper<Admin>().eq("phone", param.getPhone()));
 
         if (adminOne == null || !SaSecureUtil.sha256(param.getPwd()).equals(adminOne.getPwd())) {
             return R.failed("账号或者密码错误");
@@ -37,12 +39,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         AdminVO adminVO = new AdminVO();
 
-        adminVO = adminVO.setId(adminOne.getId())
-                .setPhone(adminOne.getPhone())
-                .setAvatar(adminOne.getAvatar())
-                .setName(adminOne.getName())
-                .setEmail(adminOne.getEmail())
-                .setStatus(adminOne.getStatus());
+        BeanUtil.copyProperties(adminOne, adminVO);
+
+        StpUtil.login(adminOne.getId());
+
+        adminVO = adminVO.setToken(StpUtil.getTokenValue());
 
         return R.ok(adminVO);
     }

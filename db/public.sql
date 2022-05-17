@@ -12,7 +12,7 @@
  Target Server Version : 140002
  File Encoding         : 65001
 
- Date: 16/05/2022 17:52:32
+ Date: 17/05/2022 22:58:23
 */
 
 
@@ -44,7 +44,7 @@ CREATE TABLE "public"."admin" (
   "add_admin" int8 DEFAULT 0,
   "edit_admin" int8 DEFAULT 0,
   "del" char(1) COLLATE "pg_catalog"."default" DEFAULT '0'::bpchar,
-  "status" char(1) COLLATE "pg_catalog"."default" DEFAULT '0'::bpchar
+  "status" char(1) COLLATE "pg_catalog"."default" DEFAULT '1'::bpchar
 )
 ;
 COMMENT ON COLUMN "public"."admin"."pwd" IS '密码';
@@ -64,7 +64,7 @@ COMMENT ON TABLE "public"."admin" IS '管理员';
 -- ----------------------------
 -- Records of admin
 -- ----------------------------
-INSERT INTO "public"."admin" VALUES (1, '92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e', '15989788839', '', '', '', 0, NULL, NULL, 0, 0, '0', '0');
+INSERT INTO "public"."admin" VALUES (1, '92925488b28ab12584ac8fcaa8a27a0f497b2c62940c8f4fbc8ef19ebc87c43e', '15989788839', '', '', '', 0, NULL, NULL, 0, 0, '0', '1');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -72,6 +72,11 @@ INSERT INTO "public"."admin" VALUES (1, '92925488b28ab12584ac8fcaa8a27a0f497b2c6
 ALTER SEQUENCE "public"."admin_id_seq"
 OWNED BY "public"."admin"."id";
 SELECT setval('"public"."admin_id_seq"', 1, true);
+
+-- ----------------------------
+-- Uniques structure for table admin
+-- ----------------------------
+ALTER TABLE "public"."admin" ADD CONSTRAINT "admin_phone_del_key" UNIQUE ("phone", "del");
 
 -- ----------------------------
 -- Primary Key structure for table admin

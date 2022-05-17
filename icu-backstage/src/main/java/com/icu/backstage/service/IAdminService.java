@@ -16,6 +16,6 @@ import com.icu.common.tool.util.R;
  */
 public interface IAdminService extends IService<Admin> {
 
-    R<Object> login(LoginParam param);
+    R<AdminVO> login(LoginParam param);
 
 }
