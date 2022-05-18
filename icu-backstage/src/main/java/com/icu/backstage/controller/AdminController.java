@@ -1,6 +1,5 @@
 package com.icu.backstage.controller;
 
-import cn.dev33.satoken.stp.StpUtil;
 import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.service.IAdminService;
