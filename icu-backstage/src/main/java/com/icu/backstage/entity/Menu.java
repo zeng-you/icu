@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import lombok.Getter;
@@ -24,6 +26,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Menu implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @TableId(value = "id", type = IdType.AUTO)
@@ -64,20 +67,31 @@ public class Menu implements Serializable {
      */
     private String type;
 
+    /**
+     * 添加时间
+     */
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime addTime;
 
+    /**
+     * 编辑时间
+     */
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
 
+    /**
+     * 添加管理员 admin id
+     */
     private Long addAdmin;
 
+    /**
+     * 编辑管理员 admin id
+     */
     private Long editAdmin;
 
     /**
      * 删除（0：否，1：是）
      */
-    @TableLogic
     private String del;
 
 
