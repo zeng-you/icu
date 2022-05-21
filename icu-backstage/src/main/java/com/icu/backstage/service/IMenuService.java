@@ -2,6 +2,7 @@ package com.icu.backstage.service;
 
 import com.icu.backstage.entity.Menu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.icu.common.tool.util.R;
 
 /**
  * <p>
@@ -13,4 +14,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IMenuService extends IService<Menu> {
 
+    /**
+     * 添加菜单
+     */
+    R<Boolean> add(Menu menu);
 }

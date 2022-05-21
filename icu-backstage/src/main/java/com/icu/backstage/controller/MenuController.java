@@ -1,11 +1,18 @@
 package com.icu.backstage.controller;
 
+import com.icu.backstage.entity.Menu;
+import com.icu.backstage.service.IMenuService;
+import com.icu.common.tool.util.R;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
+
 /**
  * <p>
- *  前端控制器
+ *  菜单
  * </p>
  *
  * @author 曾有
@@ -14,5 +21,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/menu")
 public class MenuController {
+
+    @Resource
+    protected IMenuService iMenuService;
+
+    /**
+     * 添加菜单
+     */
+    @PostMapping("add")
+    public R<Boolean> add()
+    {
+        return R.ok();
+    }
+    /*public R<Boolean> add(@RequestBody Menu menu)
+    {
+        return iMenuService.add(menu);
+    }*/
 
 }

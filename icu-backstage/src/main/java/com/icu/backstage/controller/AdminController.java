@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- * 管理员 前端控制器
+ * 管理员
  * </p>
  *
  * @author 曾有
@@ -24,8 +24,11 @@ import javax.annotation.Resource;
 public class AdminController {
 
     @Resource
-    private IAdminService iAdminService;
+    protected IAdminService iAdminService;
 
+    /**
+     * 管理员登录
+     */
     @PostMapping("login")
     public R<AdminVO> login(@RequestBody LoginParam param) {
         return iAdminService.login(param);

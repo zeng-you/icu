@@ -4,6 +4,7 @@ import com.icu.backstage.entity.Menu;
 import com.icu.backstage.mapper.MenuMapper;
 import com.icu.backstage.service.IMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.icu.common.tool.util.R;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,4 +18,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
 
+    /**
+     * 添加菜单
+     */
+    @Override
+    public R<Boolean> add(Menu menu) {
+        return null;
+    }
 }
