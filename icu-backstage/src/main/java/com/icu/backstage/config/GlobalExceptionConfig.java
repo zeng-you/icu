@@ -51,7 +51,7 @@ public class GlobalExceptionConfig {
             aj = R.failed(e.getMessage());
         }
 
-      
+
         return aj;
     }
 
