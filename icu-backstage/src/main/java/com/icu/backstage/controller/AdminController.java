@@ -30,7 +30,7 @@ public class AdminController {
      * 管理员登录
      */
     @PostMapping("login")
-    public R<AdminVO> login(@RequestBody LoginParam param) {
+    public AdminVO login(@RequestBody LoginParam param) {
         return iAdminService.login(param);
     }
 

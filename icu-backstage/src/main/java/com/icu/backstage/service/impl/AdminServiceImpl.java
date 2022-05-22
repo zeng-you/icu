@@ -1,5 +1,7 @@
 package com.icu.backstage.service.impl;
 
+import cn.dev33.satoken.exception.NotLoginException;
+import cn.dev33.satoken.exception.NotRoleException;
 import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
@@ -28,16 +30,16 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      * 管理员登录
      */
     @Override
-    public R<AdminVO> login(LoginParam param) {
+    public AdminVO login(LoginParam param) {
 
         Admin adminOne = getOne(new QueryWrapper<Admin>().eq("phone", param.getPhone()));
 
         if (adminOne == null || !SaSecureUtil.sha256(param.getPwd()).equals(adminOne.getPwd())) {
-            return R.failed("账号或者密码错误");
+            throw new NotLoginException("账号或者密码错误", "aaaaa", "ssss");
         }
 
         if (!adminOne.getStatus().equals("1")) {
-            return R.failed("账号已经被禁用");
+            throw new RuntimeException("账号已经被禁用");
         }
 
         AdminVO adminVO = new AdminVO();
@@ -48,7 +50,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         adminVO = adminVO.setToken(StpUtil.getTokenValue());
 
-        return R.ok(adminVO);
+        return adminVO;
     }
 
 }

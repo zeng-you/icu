@@ -1,7 +1,6 @@
 package com.icu.common.tool.util;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.io.Serial;
@@ -12,8 +11,10 @@ import java.io.Serializable;
  * @author 曾有
  * @since 2022/5/12
  */
-@Getter
-@Setter
+@Builder
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
 @Accessors(chain = true)
 public class R<T> implements Serializable {
 
@@ -23,16 +24,22 @@ public class R<T> implements Serializable {
     /**
      * 错误码（0：成功，1：失败）
      */
+    @Getter
+    @Setter
     private int code;
 
     /**
      * 提示信息
      */
+    @Getter
+    @Setter
     private String msg;
 
     /**
      * 数据
      */
+    @Getter
+    @Setter
     private T data;
 
     /**
@@ -61,6 +68,13 @@ public class R<T> implements Serializable {
      */
     public static <T> R<T> failed() {
         return result(null, 1, null);
+    }
+
+    /**
+     * 失败，返回提示信息
+     */
+    public static <T> R<T> failed(String msg, int code) {
+        return result(null, code, msg);
     }
 
     /**
