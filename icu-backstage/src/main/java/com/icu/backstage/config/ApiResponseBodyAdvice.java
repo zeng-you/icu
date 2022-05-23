@@ -4,57 +4,37 @@ import cn.dev33.satoken.exception.DisableLoginException;
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
+import com.alibaba.fastjson2.JSON;
 import com.icu.common.tool.util.R;
 import lombok.extern.log4j.Log4j2;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.Objects;
 
 /**
+ * 全局结果集处理
  * @author 曾有
  * @since 2022/5/22
  */
 @Log4j2
 @RestControllerAdvice
 public class ApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
-    public ApiResponseBodyAdvice() {
-    }
 
-    public boolean supports(MethodParameter returnType, Class converterType) {
-        return !returnType.getMethod().getReturnType().isAssignableFrom(Void.TYPE);
-    }
-
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
-
-        log.info("全局结果集返回");
-
-        if (body instanceof R) {
-            return body;
-        } else {
-            R apiResult = R.ok(body);
-            return returnType.getParameterType().isAssignableFrom(String.class) ? R.ok(apiResult) : apiResult;
-        }
-    }
-
-    // 全局异常拦截（拦截项目中的所有异常）
+    /**
+     * 异常
+     */
     @ExceptionHandler
-    public R<Object> handlerException(Exception e, HttpServletRequest request, HttpServletResponse response)
-            throws Exception {
-
-        // 打印堆栈，以供调试
-        log.info("-------全局异常--------");
+    public R<Object> handlerException(Exception e) {
 
         e.printStackTrace();
 
-        // 不同异常返回不同状态码
         R<Object> r;
 
         if (e instanceof NotLoginException ee) {
@@ -77,5 +57,26 @@ public class ApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
         return r;
     }
 
+    /**
+     * 判断是否要执行beforeBodyWrite方法，true为执行，false不执行
+     */
+    @Override
+    public boolean supports(@NotNull MethodParameter returnType, @NotNull Class<? extends HttpMessageConverter<?>> converterType) {
+        return !Objects.requireNonNull(returnType.getMethod()).getReturnType().isAssignableFrom(Void.TYPE);
+    }
 
+    /**
+     * 结果集处理
+     */
+    @Override
+    public Object beforeBodyWrite(Object body, @NotNull MethodParameter returnType, @NotNull MediaType selectedContentType, @NotNull Class<? extends HttpMessageConverter<?>> selectedConverterType, @NotNull ServerHttpRequest request, @NotNull ServerHttpResponse response) {
+
+        if (body instanceof R) {
+            return body;
+        }
+
+        R<Object> r = R.ok(body);
+
+        return returnType.getParameterType().isAssignableFrom(String.class) ? JSON.toJSONString(R.ok(r)) : r;
+    }
 }
