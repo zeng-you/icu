@@ -3,7 +3,6 @@ package com.icu.backstage.controller;
 import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.service.IAdminService;
-import com.icu.common.tool.util.R;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
