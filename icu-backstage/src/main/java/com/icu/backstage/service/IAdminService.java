@@ -4,7 +4,6 @@ import com.icu.backstage.entity.Admin;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.icu.backstage.entity.param.admin.LoginParam;
-import com.icu.common.tool.util.R;
 
 /**
  * <p>

@@ -1,7 +1,5 @@
 package com.icu.backstage.service.impl;
 
-import cn.dev33.satoken.exception.NotLoginException;
-import cn.dev33.satoken.exception.NotRoleException;
 import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
@@ -12,7 +10,7 @@ import com.icu.backstage.mapper.AdminMapper;
 import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.icu.common.tool.util.R;
+import com.icu.common.tool.util.E;
 import org.springframework.stereotype.Service;
 
 /**
@@ -35,11 +33,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         Admin adminOne = getOne(new QueryWrapper<Admin>().eq("phone", param.getPhone()));
 
         if (adminOne == null || !SaSecureUtil.sha256(param.getPwd()).equals(adminOne.getPwd())) {
-            throw new NotLoginException("账号或者密码错误", "aaaaa", "ssss");
+            throw new E("账号或者密码错误");
         }
 
         if (!adminOne.getStatus().equals("1")) {
-            throw new RuntimeException("账号已经被禁用");
+            throw new E("账号已经被禁用");
         }
 
         AdminVO adminVO = new AdminVO();

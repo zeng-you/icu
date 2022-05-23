@@ -5,6 +5,7 @@ import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
 import com.alibaba.fastjson2.JSON;
+import com.icu.common.tool.util.E;
 import com.icu.common.tool.util.R;
 import lombok.extern.log4j.Log4j2;
 import org.jetbrains.annotations.NotNull;
@@ -25,7 +26,7 @@ import java.util.Objects;
  */
 @Log4j2
 @RestControllerAdvice
-public class ApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
+public class ResponseBodyAdviceConfig implements ResponseBodyAdvice<Object> {
 
     /**
      * 异常
@@ -37,7 +38,10 @@ public class ApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
         R<Object> r;
 
-        if (e instanceof NotLoginException ee) {
+        if (e instanceof E ee) {
+            // 自定义
+            r = R.failed(e.getMessage(), ee.getCode());
+        } else if (e instanceof NotLoginException ee) {
             // 未登录
             r = R.failed(ee.getMessage(), ee.getCode());
         } else if (e instanceof NotRoleException ee) {
@@ -50,7 +54,7 @@ public class ApiResponseBodyAdvice implements ResponseBodyAdvice<Object> {
             // 被封禁
             r = R.failed("账号被封禁：" + ee.getDisableTime() + "秒后解封", ee.getCode());
         } else {
-            // 普通异常
+            // 其它
             r = R.failed(e.getMessage());
         }
 
