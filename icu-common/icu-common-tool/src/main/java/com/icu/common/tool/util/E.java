@@ -14,7 +14,7 @@ public class E extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 错误码（0：成功，1：失败）
+     * 错误码
      */
     @Getter
     private int code;

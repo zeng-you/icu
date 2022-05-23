@@ -5,6 +5,7 @@ import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
 import com.alibaba.fastjson2.JSON;
+import com.icu.backstage.enums.CodeEnum;
 import com.icu.common.tool.util.E;
 import com.icu.common.tool.util.R;
 import lombok.extern.log4j.Log4j2;
@@ -41,15 +42,15 @@ public class ResponseBodyAdviceConfig implements ResponseBodyAdvice<Object> {
         if (e instanceof E ee) {
             // 自定义
             r = R.failed(e.getMessage(), ee.getCode());
-        } else if (e instanceof NotLoginException ee) {
+        } else if (e instanceof NotLoginException) {
             // 未登录
-            r = R.failed(ee.getMessage(), ee.getCode());
+            r = R.failed(CodeEnum.LOGIN_EXPIRED.getMsg(), CodeEnum.LOGIN_EXPIRED.getCode());
         } else if (e instanceof NotRoleException ee) {
             // 角色
             r = R.failed("无此角色：" + ee.getRole(), ee.getCode());
         } else if (e instanceof NotPermissionException ee) {
             // 权限
-            r = R.failed("无此权限：" + ee.getPermission(), ee.getPermission());
+            r = R.failed("无此权限：" + ee.getPermission());
         } else if (e instanceof DisableLoginException ee) {
             // 被封禁
             r = R.failed("账号被封禁：" + ee.getDisableTime() + "秒后解封", ee.getCode());
