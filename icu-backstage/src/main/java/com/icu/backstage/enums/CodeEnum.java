@@ -12,7 +12,7 @@ import lombok.Getter;
 public enum CodeEnum {
 
     // 登录过期
-    LOGIN_EXPIRED("登录过期" , 10000);
+    LOGIN_EXPIRED("登录过期，请重新登录" , 10000);
 
     /**
      * 提示信息
