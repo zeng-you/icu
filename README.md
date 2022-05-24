@@ -1,40 +1,18 @@
-# icu
+## 前言：
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+- **icu** 项目刚刚成立，后继会继续更新维护
+- 开源不易，点个 star 鼓励一下吧！
 
-#### 软件架构
-软件架构说明
+## icu 介绍
 
+**icu** 是一个 **spring boot** 微服务框架。
 
-#### 安装教程
+## 相关技术与文档
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 使用说明
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
-
+| 技术           | 简介                                                                   | 文档链接                                                                                                       |
+|:-------------|:---------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
+| MyBatis-Plus | MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。 | [文档](https://baomidou.com/)                                                                                |
+| Sa-Token     | 一个轻量级 java 权限认证框架，让鉴权变得简单、优雅！                                        | [文档](https://sa-token.dev33.cn/)                                                                           |
+| JustAuth     | 开箱即用的整合第三方登录的开源组件                                                    | [文档](https://justauth.wiki/)                                                                               |
+| fastjson2    | FASTJSON项目的重要升级，目标是为下一个十年提供一个高性能的JSON库                               | [文档](https://alibaba.github.io/fastjson2/)                                                                 |
+| hutool-core  | 核心，包括Bean操作、日期、各种Util等                                               | [文档](https://www.hutool.cn/docs/index.html#/?id=%f0%9f%9b%a0%ef%b8%8f%e5%8c%85%e5%90%ab%e7%bb%84%e4%bb%b6) |
