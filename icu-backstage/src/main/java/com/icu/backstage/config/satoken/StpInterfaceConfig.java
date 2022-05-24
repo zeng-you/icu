@@ -22,7 +22,7 @@ public class StpInterfaceConfig implements StpInterface {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
         List<String> list = new ArrayList<>();
 
-        list.add("admin/login2222");
+        list.add("menu/add");
 
         return list;
     }

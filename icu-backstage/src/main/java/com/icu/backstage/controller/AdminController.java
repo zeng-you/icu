@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * @since 2022-05-14
  */
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("admin")
 public class AdminController {
 
     @Resource

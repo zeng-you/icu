@@ -19,7 +19,7 @@ import javax.annotation.Resource;
  * @since 2022-05-18
  */
 @RestController
-@RequestMapping("/menu")
+@RequestMapping("menu")
 public class MenuController {
 
     @Resource

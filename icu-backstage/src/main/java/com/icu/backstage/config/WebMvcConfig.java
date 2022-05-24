@@ -23,8 +23,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
         // 注册路由拦截器，自定义认证规则
         registry.addInterceptor(new SaRouteInterceptor((req, res, handler) -> {
 
-            // 登录认证 -- 拦截所有路由，并排除/admin/login 用于开放登录
-            SaRouter.match("/**", "/admin/login", r -> StpUtil.checkLogin());
+            // 登录认证 -- 拦截所有路由
+            SaRouter.match("/**", r -> StpUtil.checkLogin());
 
             // 权限认证 -- 不同模块认证不同权限
             SaRouter.match("/admin/**", r -> StpUtil.checkPermission("admin"));
