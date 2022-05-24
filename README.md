@@ -2,6 +2,7 @@
 
 - **icu** 项目刚刚成立，后继会继续更新维护
 - 开源不易，点个 star 鼓励一下吧！
+- [文档](https://console-docs.apipost.cn/preview/aa8ebdbc68707824/e24bf5dfe1624a8c?target_id=8c31e96c-7cdb-4ee6-b0e0-f4e0d8477798#001)
 
 ## icu 介绍
 
