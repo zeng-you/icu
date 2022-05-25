@@ -1,5 +1,6 @@
 package com.icu.backstage.config.satoken;
 
+import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.stp.StpInterface;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -22,13 +23,14 @@ public class StpInterfaceConfig implements StpInterface {
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
 
+        log.info("---返回一个账号所拥有的权限码集合----loginId：{}----loginType：{}-----", loginId, loginType);
 
-        log.info("--------返回一个账号所拥有的权限码集合----loginId：{}----loginType：{}-----", loginId, loginType);
+        log.info("--- 鉴权路由：{}", SaHolder.getRequest().getRequestPath());
 
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
         List<String> list = new ArrayList<>();
 
-      //  list.add("menu-add");
+        list.add("menu1231");
 
         return list;
     }
@@ -39,10 +41,7 @@ public class StpInterfaceConfig implements StpInterface {
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
 
-
         log.info("--------返回一个账号所拥有的角色标识集合----loginId：{}----loginType：{}-----", loginId, loginType);
-
-
 
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
         List<String> list = new ArrayList<>();

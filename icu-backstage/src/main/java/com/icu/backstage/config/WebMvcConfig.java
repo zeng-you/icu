@@ -28,7 +28,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
             // 权限认证 -- 不同模块认证不同权限
             SaRouter.match("/admin/**", r -> StpUtil.checkPermission("admin"));
-            SaRouter.match("/menu/**", r -> StpUtil.checkPermission("menu"));
+
+            SaRouter.match("/menu/add11", r -> StpUtil.checkPermission("menu123"));
 
         })).addPathPatterns("/**").excludePathPatterns("/admin/login");
     }
