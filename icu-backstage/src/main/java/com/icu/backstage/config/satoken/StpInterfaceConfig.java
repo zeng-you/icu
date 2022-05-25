@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 权限验证
+ * 自定义权限验证接口扩展
  * @author 曾有
  * @since 2022/5/21
  */
@@ -28,7 +28,7 @@ public class StpInterfaceConfig implements StpInterface {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
         List<String> list = new ArrayList<>();
 
-        list.add("menu/add");
+      //  list.add("menu-add");
 
         return list;
     }

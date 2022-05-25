@@ -21,8 +21,7 @@ mybatis-plus:
       logic-delete-field: del
 
 sa-token:
-  jwt-secret-key: icu-backstage-token
-  token-name: icu-backstage-token
+  jwt-secret-key: icu-backstage-satoken
 
 logging:
   level:
