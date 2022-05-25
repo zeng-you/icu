@@ -1,5 +1,6 @@
 package com.icu.backstage.controller;
 
+import cn.dev33.satoken.annotation.SaCheckPermission;
 import com.icu.backstage.entity.Menu;
 import com.icu.backstage.service.IMenuService;
 import com.icu.common.tool.util.R;
@@ -28,6 +29,7 @@ public class MenuController {
     /**
      * 添加菜单
      */
+    @SaCheckPermission("menu-add")
     @PostMapping("add")
     public R<Boolean> add()
     {

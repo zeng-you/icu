@@ -30,7 +30,7 @@ public class StpInterfaceConfig implements StpInterface {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
         List<String> list = new ArrayList<>();
 
-        list.add("menu1231");
+        list.add("menu-add1");
 
         return list;
     }

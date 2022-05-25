@@ -1,9 +1,8 @@
 package com.icu.backstage.config;
 
-import cn.dev33.satoken.interceptor.SaRouteInterceptor;
-import cn.dev33.satoken.router.SaRouter;
-import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.interceptor.SaAnnotationInterceptor;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -12,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @since 2022/5/23
  */
 @Configuration
+@EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
@@ -19,18 +19,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
-        // 注册路由拦截器，自定义认证规则
-        registry.addInterceptor(new SaRouteInterceptor((req, res, handler) -> {
-
-            // 登录认证 -- 拦截所有路由
-            SaRouter.match("/**", r -> StpUtil.checkLogin());
-
-            // 权限认证 -- 不同模块认证不同权限
-            SaRouter.match("/admin/**", r -> StpUtil.checkPermission("admin"));
-
-            SaRouter.match("/menu/add11", r -> StpUtil.checkPermission("menu123"));
-
-        })).addPathPatterns("/**").excludePathPatterns("/admin/login");
+        // 注册注解拦截器，并排除不需要注解鉴权的接口地址 (与登录拦截器无关)
+        registry.addInterceptor(new SaAnnotationInterceptor()).addPathPatterns("/**");
     }
+
 }
