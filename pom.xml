@@ -23,14 +23,6 @@
         <module>icu-common</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.icu</groupId>
-            <artifactId>icu-common-spring</artifactId>
-            <version>1.0</version>
-        </dependency>
-    </dependencies>
-
 
 
 </project>
