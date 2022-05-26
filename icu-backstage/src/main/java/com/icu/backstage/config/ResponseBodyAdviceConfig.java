@@ -22,6 +22,7 @@ import java.util.Objects;
 
 /**
  * 全局结果集处理
+ *
  * @author 曾有
  * @since 2022/5/22
  */

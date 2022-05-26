@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 /**
  * <p>
- *  菜单
+ * 菜单
  * </p>
  *
  * @author 曾有
@@ -31,8 +31,7 @@ public class MenuController {
      */
     @SaAdminCheckPermission("menu/add")
     @PostMapping("add")
-    public R<Boolean> add()
-    {
+    public R<Boolean> add() {
         return R.ok();
     }
     /*public R<Boolean> add(@RequestBody Menu menu)

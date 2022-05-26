@@ -31,7 +31,7 @@ public class AdminController {
     /**
      * 管理员登录
      */
-   // @SaCheckPermission("admin/login")
+    // @SaCheckPermission("admin/login")
     @PostMapping("login")
     public AdminVO login(@RequestBody LoginParam param) {
 
