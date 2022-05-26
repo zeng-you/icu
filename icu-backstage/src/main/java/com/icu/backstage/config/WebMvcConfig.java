@@ -3,12 +3,7 @@ package com.icu.backstage.config;
 import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.filter.SaServletFilter;
 import cn.dev33.satoken.interceptor.SaAnnotationInterceptor;
-import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
-import cn.dev33.satoken.stp.StpLogic;
-import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.strategy.SaStrategy;
-import com.icu.backstage.config.satoken.at.StpAdminLogicJwtForSimple;
-import com.icu.backstage.config.satoken.at.StpAdminUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,14 +19,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Slf4j
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
-
-    /**
-     * Simple 简单模式
-     */
-    @Bean
-    public StpLogic getStpLogicJwt() {
-        return new StpAdminLogicJwtForSimple();
-    }
 
     /**
      * 注册Sa-Token 的拦截器，打开注解式鉴权功能
@@ -87,9 +74,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     public void rewriteSaStrategy() {
         // 重写Sa-Token的注解处理器，增加注解合并功能
-        SaStrategy.me.getAnnotation = (element, annotationClass) -> {
-            return AnnotatedElementUtils.getMergedAnnotation(element, annotationClass);
-        };
+        SaStrategy.me.getAnnotation = AnnotatedElementUtils::getMergedAnnotation;
     }
 
 }
