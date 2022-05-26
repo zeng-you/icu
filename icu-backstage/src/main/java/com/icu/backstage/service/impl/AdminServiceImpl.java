@@ -4,6 +4,7 @@ import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.icu.backstage.config.satoken.at.StpAdminUtil;
 import com.icu.backstage.entity.Admin;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.mapper.AdminMapper;
@@ -44,7 +45,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         BeanUtil.copyProperties(adminOne, adminVO);
 
-        StpUtil.login(adminOne.getId());
+        StpAdminUtil.login(adminOne.getId());
 
         adminVO = adminVO.setToken(StpUtil.getTokenValue());
 
