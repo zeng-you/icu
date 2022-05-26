@@ -56,6 +56,9 @@ public class ResponseBodyAdviceConfig implements ResponseBodyAdvice<Object> {
             // 被封禁
             r = R.failed("账号被封禁：" + ee.getDisableTime() + "秒后解封", ee.getCode());
         } else {
+
+            log.info("-----------------------------其它异常-----------：", e);
+
             // 其它
             r = R.failed(e.getMessage());
         }

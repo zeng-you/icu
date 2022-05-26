@@ -1,7 +1,7 @@
 package com.icu.backstage.controller;
 
-import com.icu.common.auth.at.admin.SaAdminCheckPermission;
 import com.icu.backstage.service.IMenuService;
+import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
 import com.icu.common.tool.util.R;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

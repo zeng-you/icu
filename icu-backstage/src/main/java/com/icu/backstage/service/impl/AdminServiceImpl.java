@@ -4,13 +4,13 @@ import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.icu.common.auth.at.admin.StpAdminUtil;
 import com.icu.backstage.entity.Admin;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.mapper.AdminMapper;
 import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.icu.backstage.satoken.admin.StpAdminUtil;
 import com.icu.common.tool.util.E;
 import org.springframework.stereotype.Service;
 
