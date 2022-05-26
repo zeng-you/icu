@@ -30,9 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
      */
     @Bean
     public StpLogic getStpLogicJwt() {
-
-        System.out.println("---------- Simple 简单模式 " + StpUtil.TYPE);
-
         return new StpAdminLogicJwtForSimple();
     }
 

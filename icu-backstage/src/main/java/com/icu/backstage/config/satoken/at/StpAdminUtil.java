@@ -2,6 +2,7 @@ package com.icu.backstage.config.satoken.at;
 
 import cn.dev33.satoken.SaManager;
 import cn.dev33.satoken.fun.SaFunction;
+import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.SaTokenInfo;
@@ -25,7 +26,7 @@ public class StpAdminUtil {
     /**
      * 底层的 StpLogic 对象
      */
-    public static StpLogic stpLogic = new StpLogic(TYPE);
+    public static StpAdminLogicJwtForSimple stpLogic = new StpAdminLogicJwtForSimple(TYPE);
 
     /**
      * 获取当前 StpLogic 的账号类型
@@ -39,7 +40,7 @@ public class StpAdminUtil {
      * 重置 StpLogic 对象
      * @param stpLogic /
      */
-    public static void setStpLogic(StpLogic stpLogic) {
+    public static void setStpLogic(StpAdminLogicJwtForSimple stpLogic) {
         StpUtil.stpLogic = stpLogic;
         // 防止自定义 stpLogic 被覆盖
         SaManager.putStpLogic(stpLogic);

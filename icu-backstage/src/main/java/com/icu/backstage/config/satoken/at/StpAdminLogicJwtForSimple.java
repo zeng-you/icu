@@ -19,7 +19,7 @@ public class StpAdminLogicJwtForSimple extends StpLogic {
      * Sa-Token 整合 jwt -- Simple模式 
      */
     public StpAdminLogicJwtForSimple() {
-        super(StpUtil.TYPE);
+        super(StpAdminUtil.TYPE);
     }
 
     /**
