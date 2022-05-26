@@ -1,11 +1,10 @@
 package com.icu.backstage.service.impl;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
-import cn.dev33.satoken.stp.SaLoginModel;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.icu.backstage.config.satoken.at.StpAdminUtil;
+import com.icu.common.auth.at.admin.StpAdminUtil;
 import com.icu.backstage.entity.Admin;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.mapper.AdminMapper;

@@ -1,4 +1,4 @@
-package com.icu.backstage.config.satoken.at;
+package com.icu.common.auth.at.admin;
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
 

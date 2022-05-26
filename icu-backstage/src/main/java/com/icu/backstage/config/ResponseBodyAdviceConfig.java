@@ -5,7 +5,7 @@ import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
 import com.alibaba.fastjson2.JSON;
-import com.icu.backstage.enums.CodeEnum;
+import com.icu.common.tool.enums.CodeEnum;
 import com.icu.common.tool.util.E;
 import com.icu.common.tool.util.R;
 import lombok.extern.log4j.Log4j2;

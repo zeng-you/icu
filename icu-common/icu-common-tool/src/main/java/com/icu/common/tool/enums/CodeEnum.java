@@ -1,4 +1,4 @@
-package com.icu.backstage.enums;
+package com.icu.common.tool.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
