@@ -7,6 +7,8 @@ import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
 import cn.dev33.satoken.stp.StpLogic;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.strategy.SaStrategy;
+import com.icu.backstage.config.satoken.at.StpAdminLogicJwtForSimple;
+import com.icu.backstage.config.satoken.at.StpAdminUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +33,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
         System.out.println("---------- Simple 简单模式 " + StpUtil.TYPE);
 
-        return new StpLogicJwtForSimple();
+        return new StpAdminLogicJwtForSimple();
     }
 
     /**
