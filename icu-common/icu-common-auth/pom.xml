@@ -17,6 +17,13 @@
             <artifactId>sa-token-spring-boot-starter</artifactId>
             <version>1.30.0</version>
         </dependency>
+        <!-- Sa-Token 整合 jwt -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-jwt</artifactId>
+            <version>1.30.0</version>
+        </dependency>
+
     </dependencies>
 
 </project>
