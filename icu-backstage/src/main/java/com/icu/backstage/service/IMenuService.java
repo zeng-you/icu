@@ -17,5 +17,5 @@ public interface IMenuService extends IService<Menu> {
     /**
      * 菜单添加
      */
-    R<Boolean> add(Menu menu);
+    boolean add(Menu menu);
 }

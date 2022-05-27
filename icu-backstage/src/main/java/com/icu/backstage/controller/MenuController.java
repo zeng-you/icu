@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -31,9 +32,15 @@ public class MenuController {
      */
     @SaAdminCheckPermission("menu/add")
     @PostMapping("add")
-    public R<Boolean> add(@RequestBody Menu menu)
+    public boolean add(@RequestBody Menu menu)
     {
         return iMenuService.add(menu);
+    }
+
+    @PostMapping("list")
+    public List<Menu> list(@RequestBody Menu menu)
+    {
+        return iMenuService.list();
     }
 
 }

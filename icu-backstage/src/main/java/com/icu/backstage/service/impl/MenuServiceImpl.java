@@ -32,7 +32,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
      * 菜单添加
      */
     @Override
-    public R<Boolean> add(Menu menu) {
+    public boolean add(Menu menu) {
 
         menu = menu.setAddAdmin(SaUtil.adminId());
 
@@ -40,6 +40,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
 
         if (insert == 0) throw new E("菜单添加失败");
 
-        return null;
+        return true;
     }
 }
