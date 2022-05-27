@@ -1,5 +1,13 @@
 # 开发环境
 spring:
+  devtools:
+    restart:
+      # 热重启
+      enabled: true
+      # 重启目录
+      additional-paths: src/main/java
+      # classpath目录下的templates文件夹内容修改不重启
+      exclude: templates/**
   datasource:
     username: postgres
     password: postgres

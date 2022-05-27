@@ -52,4 +52,9 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return adminVO;
     }
 
+    @Override
+    public AdminVO loginInfo(Object o) {
+        return null;
+    }
+
 }

@@ -1,5 +1,9 @@
-# 开发环境
+# 正式环境
 spring:
+  devtools:
+    restart:
+      # 热重启
+      enabled: false
   datasource:
     username: postgres
     password: postgres

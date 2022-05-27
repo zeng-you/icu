@@ -4,6 +4,7 @@ import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.filter.SaServletFilter;
 import cn.dev33.satoken.interceptor.SaAnnotationInterceptor;
 import cn.dev33.satoken.jwt.StpLogicJwtForSimple;
+import cn.dev33.satoken.stp.StpLogic;
 import cn.dev33.satoken.strategy.SaStrategy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
      * Sa-Token 整合 jwt (Simple 简单模式)
      */
     @Bean
-    public StpLogicJwtForSimple getStpLogicJwt() {
+    public StpLogic getStpLogicJwt() {
         return new StpLogicJwtForSimple();
     }
 

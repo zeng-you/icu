@@ -20,4 +20,5 @@ public interface IAdminService extends IService<Admin> {
      */
     AdminVO login(LoginParam param);
 
+    AdminVO loginInfo(Object o);
 }

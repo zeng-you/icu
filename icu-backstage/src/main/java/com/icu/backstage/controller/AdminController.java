@@ -5,10 +5,7 @@ import com.icu.backstage.entity.param.admin.LoginParam;
 import com.icu.backstage.entity.vo.AdminVO;
 import com.icu.backstage.service.IAdminService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -34,8 +31,13 @@ public class AdminController {
     // @SaCheckPermission("admin/login")
     @PostMapping("login")
     public AdminVO login(@RequestBody LoginParam param) {
-
         return iAdminService.login(param);
+    }
+
+    @GetMapping("login/info")
+    public AdminVO loginInfo() {
+
+        return iAdminService.loginInfo(null);
     }
 
 }
