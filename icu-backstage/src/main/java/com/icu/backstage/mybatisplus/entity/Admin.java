@@ -1,30 +1,29 @@
-package com.icu.backstage.entity;
+package com.icu.backstage.mybatisplus.entity;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.experimental.Accessors;
-
 /**
  * <p>
- * 菜单
+ * 管理员
  * </p>
  *
  * @author 曾有
- * @since 2022-05-18
+ * @since 2022-05-14
  */
 @Getter
 @Setter
 @Accessors(chain = true)
-public class Menu implements Serializable {
+public class Admin implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -33,39 +32,34 @@ public class Menu implements Serializable {
     private Long id;
 
     /**
-     * 名称
+     * 密码
+     */
+    private String pwd;
+
+    /**
+     * 手机号码
+     */
+    private String phone;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    /**
+     * 姓名
      */
     private String name;
 
     /**
-     * 权限标识
+     * 邮箱
      */
-    private String permission;
+    private String email;
 
     /**
-     * 组件路径
+     * 部门 department id
      */
-    private String path;
-
-    /**
-     * 父级id（menu id）
-     */
-    private Long pid;
-
-    /**
-     * 图标
-     */
-    private String icon;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 类型（0：左菜单，1：按钮，2：顶菜单）
-     */
-    private String type;
+    private Long departmentId;
 
     /**
      * 添加时间
@@ -93,6 +87,11 @@ public class Menu implements Serializable {
      * 删除（0：否，1：是）
      */
     private String del;
+
+    /**
+     * 状态（0：禁用，1：正常）
+     */
+    private String status;
 
 
 }

@@ -1,10 +1,8 @@
-package com.icu.backstage.entity.param.admin;
+package com.icu.backstage.mybatisplus.param.admin;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
-
-import java.io.Serializable;
 
 /**
  * <p>

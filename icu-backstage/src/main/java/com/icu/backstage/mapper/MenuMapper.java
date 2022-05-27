@@ -1,6 +1,6 @@
 package com.icu.backstage.mapper;
 
-import com.icu.backstage.entity.Menu;
+import com.icu.backstage.mybatisplus.entity.Menu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

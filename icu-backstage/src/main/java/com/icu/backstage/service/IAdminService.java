@@ -1,9 +1,9 @@
 package com.icu.backstage.service;
 
-import com.icu.backstage.entity.Admin;
-import com.icu.backstage.entity.vo.AdminVO;
+import com.icu.backstage.mybatisplus.entity.Admin;
+import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.icu.backstage.entity.param.admin.LoginParam;
+import com.icu.backstage.mybatisplus.param.admin.LoginParam;
 
 /**
  * <p>

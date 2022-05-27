@@ -1,8 +1,7 @@
 package com.icu.backstage.controller;
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
-import com.icu.backstage.entity.param.admin.LoginParam;
-import com.icu.backstage.entity.vo.AdminVO;
+import com.icu.backstage.mybatisplus.param.admin.LoginParam;
+import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.service.IAdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -28,12 +27,14 @@ public class AdminController {
     /**
      * 管理员登录
      */
-    // @SaCheckPermission("admin/login")
     @PostMapping("login")
     public AdminVO login(@RequestBody LoginParam param) {
         return iAdminService.login(param);
     }
 
+    /**
+     * 登录详情
+     */
     @GetMapping("login/info")
     public AdminVO loginInfo() {
 

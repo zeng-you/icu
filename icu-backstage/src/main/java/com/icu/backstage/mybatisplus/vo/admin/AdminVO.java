@@ -1,4 +1,4 @@
-package com.icu.backstage.entity.vo;
+package com.icu.backstage.mybatisplus.vo.admin;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
