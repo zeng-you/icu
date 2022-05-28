@@ -4,9 +4,11 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -64,12 +66,14 @@ public class Admin implements Serializable {
     /**
      * 添加时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime addTime;
 
     /**
      * 编辑时间
      */
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
 
