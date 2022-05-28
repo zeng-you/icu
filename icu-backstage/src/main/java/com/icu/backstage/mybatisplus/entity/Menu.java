@@ -79,17 +79,19 @@ public class Menu implements Serializable {
      * 编辑时间
      */
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @TableField(fill = FieldFill.INSERT_UPDATE)
+    @TableField(fill = FieldFill.UPDATE)
     private LocalDateTime editTime;
 
     /**
      * 添加管理员 admin id
      */
+    @TableField(fill = FieldFill.INSERT)
     private Long addAdmin;
 
     /**
      * 编辑管理员 admin id
      */
+    @TableField(fill = FieldFill.UPDATE)
     private Long editAdmin;
 
     /**
