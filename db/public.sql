@@ -12,7 +12,7 @@
  Target Server Version : 140002
  File Encoding         : 65001
 
- Date: 28/05/2022 08:56:05
+ Date: 28/05/2022 17:58:28
 */
 
 
@@ -138,6 +138,15 @@ INSERT INTO "public"."menu" VALUES (21, '', '', '', 0, '', 0, '1', '2022-05-27 1
 INSERT INTO "public"."menu" VALUES (22, '', '', '', 0, '', 0, '1', '2022-05-27 18:03:42', '2022-05-27 18:03:42', 1, 0, '0');
 INSERT INTO "public"."menu" VALUES (23, '', '', '', 0, '', 0, '1', '2022-05-27 18:05:30', '2022-05-27 18:05:30', 1, 0, '0');
 INSERT INTO "public"."menu" VALUES (24, '', '', '', 0, '', 0, '1', '2022-05-27 18:07:25', '2022-05-27 18:07:25', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (25, '', '', '', 0, '', 0, '1', '2022-05-28 09:28:33', '2022-05-28 09:28:33', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (26, '', '', '', 0, '', 0, '1', '2022-05-28 09:47:44', '2022-05-28 09:47:44', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (27, '', '', '', 0, '', 0, '1', NULL, NULL, 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (28, '', '', '', 0, '', 0, '1', '2022-05-28 10:18:44', '2022-05-28 10:18:44', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (29, '', '', '', 0, '', 0, '1', '2022-05-28 10:19:53', '2022-05-28 10:19:53', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (30, '', '', '', 0, '', 0, '1', '2022-05-28 10:20:02', '2022-05-28 10:20:02', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (31, '', '', '', 0, '', 0, '1', '2022-05-28 10:23:59', '2022-05-28 10:23:59', 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (32, '', '', '', 0, '', 0, '1', '2022-05-28 14:42:36', NULL, 1, 0, '0');
+INSERT INTO "public"."menu" VALUES (33, '', '', '', 0, '', 0, '1', '2022-05-28 14:47:28', NULL, 1, 0, '0');
 
 -- ----------------------------
 -- Alter sequences owned by
@@ -151,7 +160,7 @@ SELECT setval('"public"."admin_id_seq"', 1, true);
 -- ----------------------------
 ALTER SEQUENCE "public"."menu_id_seq"
 OWNED BY "public"."menu"."id";
-SELECT setval('"public"."menu_id_seq"', 24, true);
+SELECT setval('"public"."menu_id_seq"', 33, true);
 
 -- ----------------------------
 -- Uniques structure for table admin

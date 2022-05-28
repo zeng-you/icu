@@ -100,6 +100,20 @@ public class R<T> implements Serializable {
     }
 
     /**
+     * 失败，返回数据、提示信息、状态码
+     */
+    public static <T> R<T> failed(T data, int code) {
+        return result(data, code, "");
+    }
+
+    /**
+     * 失败，返回数据、提示信息、状态码
+     */
+    public static <T> R<T> failed(T data, int code, String msg) {
+        return result(data, code, msg);
+    }
+
+    /**
      * 失败，返回数据、错误码、提示信息
      */
     private static <T> R<T> result(T data, int code, String msg) {

@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.icu.backstage.mybatisplus.entity.Admin;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.mapper.AdminMapper;
-import com.icu.backstage.mybatisplus.param.admin.LoginParam;
+import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;
 import com.icu.backstage.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.backstage.satoken.admin.StpAdminUtil;
@@ -29,7 +29,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
      * 管理员登录
      */
     @Override
-    public AdminVO login(LoginParam param) {
+    public AdminVO login(AdminLoginParam param) {
 
         Admin adminOne = getOne(new QueryWrapper<Admin>().eq("phone", param.getPhone()));
 

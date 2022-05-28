@@ -1,9 +1,10 @@
 package com.icu.backstage.controller;
 
-import com.icu.backstage.mybatisplus.param.admin.LoginParam;
+import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.service.IAdminService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,7 +29,10 @@ public class AdminController {
      * 管理员登录
      */
     @PostMapping("login")
-    public AdminVO login(@RequestBody LoginParam param) {
+    public Object login(@Validated @RequestBody AdminLoginParam param) {
+
+        log.info("----管理员登录------{}", param);
+
         return iAdminService.login(param);
     }
 

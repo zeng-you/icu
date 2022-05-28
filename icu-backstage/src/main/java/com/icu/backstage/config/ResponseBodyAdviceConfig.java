@@ -4,6 +4,7 @@ import cn.dev33.satoken.exception.DisableLoginException;
 import cn.dev33.satoken.exception.NotLoginException;
 import cn.dev33.satoken.exception.NotPermissionException;
 import cn.dev33.satoken.exception.NotRoleException;
+import cn.hutool.core.collection.CollStreamUtil;
 import com.alibaba.fastjson2.JSON;
 import com.icu.common.tool.enums.CodeEnum;
 import com.icu.common.tool.util.E;
@@ -15,9 +16,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
 import org.springframework.http.server.ServerHttpResponse;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import javax.validation.ConstraintViolationException;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -31,39 +39,82 @@ import java.util.Objects;
 public class ResponseBodyAdviceConfig implements ResponseBodyAdvice<Object> {
 
     /**
-     * 异常
+     * 自定义异常
      */
-    @ExceptionHandler
-    public R<Object> handlerException(Exception e) {
+    @ExceptionHandler(value = E.class)
+    public R<Object> exceptionHandle(E e) {
+        return R.failed(e.getMessage(), e.getCode());
+    }
 
-        e.printStackTrace();
+    /**
+     * 未登录异常
+     */
+    @ExceptionHandler(value = NotLoginException.class)
+    public R<Object> exceptionHandle() {
+        return R.failed(CodeEnum.LOGIN_EXPIRED.getMsg(), CodeEnum.LOGIN_EXPIRED.getCode());
+    }
 
-        R<Object> r;
+    /**
+     * 角色异常
+     */
+    @ExceptionHandler(value = NotRoleException.class)
+    public R<Object> exceptionHandle(NotRoleException e) {
+        return R.failed("无此角色：" + e.getRole(), e.getCode());
+    }
 
-        if (e instanceof E ee) {
-            // 自定义
-            r = R.failed(e.getMessage(), ee.getCode());
-        } else if (e instanceof NotLoginException) {
-            // 未登录
-            r = R.failed(CodeEnum.LOGIN_EXPIRED.getMsg(), CodeEnum.LOGIN_EXPIRED.getCode());
-        } else if (e instanceof NotRoleException ee) {
-            // 角色
-            r = R.failed("无此角色：" + ee.getRole(), ee.getCode());
-        } else if (e instanceof NotPermissionException ee) {
-            // 权限
-            r = R.failed("无此权限：" + ee.getPermission());
-        } else if (e instanceof DisableLoginException ee) {
-            // 被封禁
-            r = R.failed("账号被封禁：" + ee.getDisableTime() + "秒后解封", ee.getCode());
-        } else {
+    /**
+     * 权限异常
+     */
+    @ExceptionHandler(value = NotPermissionException.class)
+    public R<Object> exceptionHandle(NotPermissionException e) {
+        return R.failed("无此权限：" + e.getPermission());
+    }
 
-            log.info("-----------------------------其它异常-----------：", e);
+    /**
+     * 被封禁异常
+     */
+    @ExceptionHandler(value = DisableLoginException.class)
+    public R<Object> exceptionHandle(DisableLoginException e) {
+        return R.failed("账号被封禁：" + e.getDisableTime() + "秒后解封", e.getCode());
+    }
 
-            // 其它
-            r = R.failed(e.getMessage());
-        }
+    /**
+     * 其它异常
+     */
+    @ExceptionHandler(value = Exception.class)
+    public R<Object> exceptionHandle(Exception e) {
+        return R.failed(e.getMessage());
+    }
 
-        return r;
+    /**
+     * 参数错误异常
+     */
+    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+    public R<Object> exceptionHandle(MethodArgumentNotValidException e) {
+
+        BindingResult bindingResult = e.getBindingResult();
+
+        List<FieldError> fieldError = bindingResult.getFieldErrors();
+
+        Map<String, Object> msg = CollStreamUtil.toMap(fieldError, FieldError::getField, FieldError::getDefaultMessage);
+
+        return R.failed(msg, CodeEnum.VALIDATED_METHOD.getCode(), CodeEnum.VALIDATED_METHOD.getMsg());
+    }
+    
+    /**
+     * 参数错误异常（待完善）
+     */
+    @ExceptionHandler(value = BindException.class)
+    public R<Object> exceptionHandle(BindException e) {
+        return R.failed(e.getMessage(), 2222);
+    }
+
+    /**
+     * 参数错误异常（待完善）
+     */
+    @ExceptionHandler(value = ConstraintViolationException.class)
+    public R<Object> exceptionHandle(ConstraintViolationException e) {
+        return R.failed(e.getMessage(), 3333);
     }
 
     /**

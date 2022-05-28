@@ -16,11 +16,11 @@
 
 ## 相关技术与文档
 
-| 技术                                                                                                                  | 简介                                                                                                                               | 
-|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------|
-| [MyBatis-Plus](https://baomidou.com/)                                                                               | MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。                                                             |
-| [Sa-Token](https://sa-token.dev33.cn/)                                                                              | 一个轻量级 java 权限认证框架，让鉴权变得简单、优雅！                                                                                                    | 
-| [JustAuth](https://justauth.wiki/)                                                                                  | 开箱即用的整合第三方登录的开源组件                                                                                                                | 
-| [fastjson2](https://alibaba.github.io/fastjson2/)                                                                   | FASTJSON项目的重要升级，目标是为下一个十年提供一个高性能的JSON库                                                                                           | 
-| [hutool-core](https://www.hutool.cn/docs/index.html#/?id=%f0%9f%9b%a0%ef%b8%8f%e5%8c%85%e5%90%ab%e7%bb%84%e4%bb%b6) | 核心，包括Bean操作、日期、各种Util等                                                                                                           | 
-| [hibernate-validator](https://blog.csdn.net/m0_37583655/article/details/124500769)                                  | 常见的业务开发中无可避免的会进行请求参数校验，一般对于复杂的业务参数校验，可以通过校验类单独的校验方法进行处理，通常对于一些与业务无关简单的参数校验可以采用javax.validation 和 hibernate-validator通过注解的方式实现校验。 | 
+| 技术                                                                                                                  | 简介                                                                   | 
+|:--------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
+| [MyBatis-Plus](https://baomidou.com/)                                                                               | MyBatis (opens new window)的增强工具，在 MyBatis 的基础上只做增强不做改变，为简化开发、提高效率而生。 |
+| [Sa-Token](https://sa-token.dev33.cn/)                                                                              | 一个轻量级 java 权限认证框架，让鉴权变得简单、优雅！                                        | 
+| [JustAuth](https://justauth.wiki/)                                                                                  | 开箱即用的整合第三方登录的开源组件                                                    | 
+| [fastjson2](https://alibaba.github.io/fastjson2/)                                                                   | FASTJSON项目的重要升级，目标是为下一个十年提供一个高性能的JSON库                               | 
+| [hutool-core](https://www.hutool.cn/docs/index.html#/?id=%f0%9f%9b%a0%ef%b8%8f%e5%8c%85%e5%90%ab%e7%bb%84%e4%bb%b6) | 核心，包括Bean操作、日期、各种Util等                                               | 
+| [Validation](https://blog.csdn.net/justry_deng/article/details/86571671)                                            | Validation校验参数                                                       | 
