@@ -37,7 +37,7 @@ public class MenuController {
     /**
      * 菜单编辑
      */
-    @PostMapping("edit")
+    @PutMapping("edit")
     public boolean edit(@RequestBody Menu menu)
     {
         return iMenuService.edit(menu);
