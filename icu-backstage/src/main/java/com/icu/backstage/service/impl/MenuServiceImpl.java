@@ -8,8 +8,6 @@ import com.icu.common.tool.util.E;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
-
 /**
  * <p>
  * 菜单
@@ -22,19 +20,44 @@ import javax.annotation.Resource;
 @Service
 public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
 
-    @Resource
-    private MenuMapper menuMapper;
-
     /**
      * 菜单添加
      */
     @Override
     public boolean add(Menu menu) {
 
-        int insert = menuMapper.insert(menu);
+        boolean save = save(menu);
 
-        if (insert == 0) throw new E("菜单添加失败");
+        if (!save) throw new E("菜单添加失败");
 
         return true;
     }
+
+    /**
+     * 菜单编辑
+     */
+    @Override
+    public boolean edit(Menu menu) {
+
+        boolean update = updateById(menu);
+
+        if (!update) throw new E("菜单编辑失败");
+
+        return true;
+    }
+
+    /**
+     * 菜单删除
+     */
+    @Override
+    public boolean del(Long id) {
+
+        boolean remove = removeById(id);
+
+        if (!remove) throw new E("菜单删除失败");
+
+        return true;
+    }
+
+
 }

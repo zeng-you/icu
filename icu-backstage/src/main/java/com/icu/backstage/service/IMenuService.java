@@ -18,4 +18,14 @@ public interface IMenuService extends IService<Menu> {
      * 菜单添加
      */
     boolean add(Menu menu);
+
+    /**
+     * 菜单编辑
+     */
+    boolean edit(Menu menu);
+
+    /**
+     * 菜单删除
+     */
+    boolean del(Long id);
 }

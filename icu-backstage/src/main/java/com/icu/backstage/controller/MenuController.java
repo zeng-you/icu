@@ -4,10 +4,7 @@ import com.icu.backstage.mybatisplus.entity.Menu;
 import com.icu.backstage.service.IMenuService;
 import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
 import com.icu.common.tool.util.R;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -36,6 +33,25 @@ public class MenuController {
     {
         return iMenuService.add(menu);
     }
+
+    /**
+     * 菜单编辑
+     */
+    @PostMapping("edit")
+    public boolean edit(@RequestBody Menu menu)
+    {
+        return iMenuService.edit(menu);
+    }
+
+    /**
+     * 菜单删除
+     */
+    @DeleteMapping("/del/{id}")
+    public boolean del(@PathVariable Long id)
+    {
+        return iMenuService.del(id);
+    }
+
 
     @PostMapping("list")
     public List<Menu> list(@RequestBody Menu menu)

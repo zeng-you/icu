@@ -33,7 +33,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void updateFill(MetaObject metaObject) {
         this.strictUpdateFill(metaObject, "editTime" , LocalDateTime::now, LocalDateTime.class);
-        this.strictInsertFill(metaObject, "editAdmin", SaUtil::adminId   , Long.class);
+        this.strictUpdateFill(metaObject, "editAdmin", SaUtil::adminId   , Long.class);
     }
 
 
