@@ -1,5 +1,8 @@
 package com.icu.backstage.service.impl;
 
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeNodeConfig;
+import cn.hutool.core.lang.tree.TreeUtil;
 import com.icu.backstage.mybatisplus.entity.Menu;
 import com.icu.backstage.mapper.MenuMapper;
 import com.icu.backstage.service.IMenuService;
@@ -7,6 +10,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.common.tool.util.E;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * <p>
@@ -57,6 +62,34 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
         if (!remove) throw new E("菜单删除失败");
 
         return true;
+    }
+
+    /**
+     * 菜单列表
+     */
+    @Override
+    public List<Tree<String>> lists() {
+
+        List<Menu> lists = list();
+
+        TreeNodeConfig treeNodeConfig = new TreeNodeConfig();
+
+        treeNodeConfig.setParentIdKey("pid");
+        treeNodeConfig.setWeightKey("sort");
+
+        treeNodeConfig.setDeep(3);
+
+        return TreeUtil.build(lists, "0", treeNodeConfig,
+                (treeNode, tree) -> {
+                    tree.setId(String.valueOf(treeNode.getId()));
+                    tree.setName(treeNode.getName());
+                    tree.putExtra("permission", treeNode.getPermission());
+                    tree.putExtra("path", treeNode.getPath());
+                    tree.setParentId(String.valueOf(treeNode.getPid()));
+                    tree.putExtra("icon", treeNode.getIcon());
+                    tree.setWeight(String.valueOf(treeNode.getSort()));
+                    tree.putExtra("type", treeNode.getType());
+                });
     }
 
 

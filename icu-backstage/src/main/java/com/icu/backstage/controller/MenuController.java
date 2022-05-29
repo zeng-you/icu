@@ -1,9 +1,9 @@
 package com.icu.backstage.controller;
 
+import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;
 import com.icu.backstage.service.IMenuService;
 import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
-import com.icu.common.tool.util.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -52,11 +52,13 @@ public class MenuController {
         return iMenuService.del(id);
     }
 
-
-    @PostMapping("list")
-    public List<Menu> list(@RequestBody Menu menu)
+    /**
+     * 菜单列表
+     */
+    @PostMapping("lists")
+    public List<Tree<String>> lists(@RequestBody Menu menu)
     {
-        return iMenuService.list();
+        return iMenuService.lists();
     }
 
 }
