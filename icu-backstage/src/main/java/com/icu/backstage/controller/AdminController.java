@@ -30,9 +30,6 @@ public class AdminController {
      */
     @PostMapping("login")
     public Object login(@Validated @RequestBody AdminLoginParam param) {
-
-        log.info("----管理员登录------{}", param);
-
         return iAdminService.login(param);
     }
 
@@ -41,8 +38,7 @@ public class AdminController {
      */
     @GetMapping("login/info")
     public AdminVO loginInfo() {
-
-        return iAdminService.loginInfo(null);
+        return iAdminService.loginInfo();
     }
 
 }

@@ -11,6 +11,7 @@ import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;
 import com.icu.backstage.service.IAdminService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.backstage.satoken.admin.StpAdminUtil;
+import com.icu.backstage.util.SaUtil;
 import com.icu.common.tool.util.E;
 import org.springframework.stereotype.Service;
 
@@ -52,9 +53,19 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
         return adminVO;
     }
 
+    /**
+     * 登录详情
+     */
     @Override
-    public AdminVO loginInfo(Object o) {
-        return null;
+    public AdminVO loginInfo() {
+
+        Admin adminOne = getOne(new QueryWrapper<Admin>().eq("id", SaUtil.adminId()));
+
+        AdminVO adminVO = new AdminVO();
+
+        BeanUtil.copyProperties(adminOne, adminVO);
+
+        return adminVO;
     }
 
 }
