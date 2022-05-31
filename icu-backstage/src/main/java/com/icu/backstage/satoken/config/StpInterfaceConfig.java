@@ -28,8 +28,9 @@ public class StpInterfaceConfig implements StpInterface {
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询权限
         List<String> list = new ArrayList<>();
 
-        list.add("admin/login");
-        list.add("menu/add");
+        if ("1".equals(loginId)) {
+            list.add("**");
+        }
 
         return list;
     }
