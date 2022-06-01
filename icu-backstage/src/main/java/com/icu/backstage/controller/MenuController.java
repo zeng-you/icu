@@ -56,7 +56,7 @@ public class MenuController {
      * 菜单列表
      */
     @PostMapping("lists")
-    public List<Tree<String>> lists(@RequestBody Menu menu)
+    public List<Tree<String>> listTree(@RequestBody Menu menu)
     {
         return iMenuService.lists();
     }
