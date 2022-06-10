@@ -65,10 +65,10 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
     }
 
     /**
-     * 菜单列表
+     * 菜单树
      */
     @Override
-    public List<Tree<String>> lists() {
+    public List<Tree<String>> tree() {
 
         List<Menu> lists = list();
 

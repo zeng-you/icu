@@ -53,12 +53,12 @@ public class MenuController {
     }
 
     /**
-     * 菜单列表
+     * 菜单树
      */
-    @PostMapping("lists")
-    public List<Tree<String>> listTree(@RequestBody Menu menu)
+    @PostMapping("tree")
+    public List<Tree<String>> tree()
     {
-        return iMenuService.lists();
+        return iMenuService.tree();
     }
 
 }

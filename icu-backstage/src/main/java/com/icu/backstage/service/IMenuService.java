@@ -32,7 +32,7 @@ public interface IMenuService extends IService<Menu> {
     boolean del(Long id);
 
     /**
-     * 菜单列表
+     * 菜单树
      */
-    List<Tree<String>> lists();
+    List<Tree<String>> tree();
 }
