@@ -3,6 +3,7 @@ package com.icu.backstage.service.impl;
 import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.icu.backstage.mybatisplus.entity.Admin;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
@@ -34,10 +35,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public AdminVO login(AdminLoginParam param) {
 
-        QueryWrapper<Admin> wrapper = new QueryWrapper<Admin>().eq("phone", param.getPhone());
+        LambdaQueryWrapper<Admin> wrapper = new LambdaQueryWrapper<Admin>().eq(Admin::getPhone, param.getPhone());
 
         if (param.getTenantId() != null) {
-            wrapper.eq("tenant_id", param.getTenantId());
+            wrapper.eq(Admin::getTenantId, param.getTenantId());
         }
 
         Admin adminOne = getOne(wrapper);

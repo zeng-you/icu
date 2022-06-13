@@ -1,6 +1,5 @@
 package com.icu.backstage.mybatisplus.param.admin;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -16,7 +15,8 @@ import javax.validation.constraints.NotBlank;
  * @author 曾有
  * @since 2022-05-14
  */
-@Data
+@Getter
+@Setter
 @ToString
 @Accessors(chain = true)
 public class AdminLoginParam {
