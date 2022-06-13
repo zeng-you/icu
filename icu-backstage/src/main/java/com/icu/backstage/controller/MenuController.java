@@ -55,7 +55,7 @@ public class MenuController {
     /**
      * 菜单树
      */
-    @PostMapping("tree")
+    @GetMapping("tree")
     public List<Tree<String>> tree()
     {
         return iMenuService.tree();

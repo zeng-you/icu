@@ -77,18 +77,6 @@ public class Admin implements Serializable {
     private LocalDateTime editTime;
 
     /**
-     * 添加管理员 admin id
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private Long addAdmin;
-
-    /**
-     * 编辑管理员 admin id
-     */
-    @TableField(fill = FieldFill.UPDATE)
-    private Long editAdmin;
-
-    /**
      * 删除（0：否，1：是）
      */
     private String del;
