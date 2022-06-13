@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.backstage.satoken.admin.StpAdminUtil;
 import com.icu.backstage.util.SaUtil;
 import com.icu.common.tool.util.E;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,6 +24,7 @@ import org.springframework.stereotype.Service;
  * @author 曾有
  * @since 2022-05-14
  */
+@Slf4j
 @Service
 public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements IAdminService {
 
@@ -32,7 +34,13 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
     @Override
     public AdminVO login(AdminLoginParam param) {
 
-        Admin adminOne = getOne(new QueryWrapper<Admin>().eq("phone", param.getPhone()));
+        QueryWrapper<Admin> wrapper = new QueryWrapper<Admin>().eq("phone", param.getPhone());
+
+        if (param.getTenantId() != null) {
+            wrapper.eq("tenant_id", param.getTenantId());
+        }
+
+        Admin adminOne = getOne(wrapper);
 
         if (adminOne == null || !SaSecureUtil.sha256(param.getPwd()).equals(adminOne.getPwd())) {
             throw new E("账号或者密码错误");

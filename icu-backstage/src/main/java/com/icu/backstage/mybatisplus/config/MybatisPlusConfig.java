@@ -1,4 +1,4 @@
-package com.icu.backstage.config;
+package com.icu.backstage.mybatisplus.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

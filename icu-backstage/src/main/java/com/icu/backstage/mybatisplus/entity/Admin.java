@@ -48,9 +48,9 @@ public class Admin implements Serializable {
     private String avatar;
 
     /**
-     * 姓名
+     * 昵称
      */
-    private String name;
+    private String nickname;
 
     /**
      * 邮箱
@@ -58,9 +58,9 @@ public class Admin implements Serializable {
     private String email;
 
     /**
-     * 部门 department id
+     * 部门 dept id
      */
-    private Long departmentId;
+    private Long deptId;
 
     /**
      * 添加时间
@@ -86,5 +86,9 @@ public class Admin implements Serializable {
      */
     private String status;
 
+    /**
+     * 所属租户 tenant id
+     */
+    private Long tenantId;
 
 }

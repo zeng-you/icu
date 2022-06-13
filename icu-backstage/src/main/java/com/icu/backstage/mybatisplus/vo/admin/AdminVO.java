@@ -42,9 +42,9 @@ public class AdminVO implements Serializable {
     private String avatar;
 
     /**
-     * 姓名
+     * 昵称
      */
-    private String name;
+    private String nickname;
 
     /**
      * 邮箱
@@ -60,5 +60,10 @@ public class AdminVO implements Serializable {
      * 令牌
      */
     private String token;
+
+    /**
+     * 所属租户 tenant id
+     */
+    private Long tenantId;
 
 }
