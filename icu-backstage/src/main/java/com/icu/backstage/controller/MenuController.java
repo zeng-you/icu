@@ -2,7 +2,7 @@ package com.icu.backstage.controller;
 
 import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;
-import com.icu.backstage.service.IMenuService;
+import com.icu.backstage.mybatisplus.service.IMenuService;
 import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
 import org.springframework.web.bind.annotation.*;
 

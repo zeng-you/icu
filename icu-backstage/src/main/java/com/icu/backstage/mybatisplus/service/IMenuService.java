@@ -1,4 +1,4 @@
-package com.icu.backstage.service;
+package com.icu.backstage.mybatisplus.service;
 
 import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;

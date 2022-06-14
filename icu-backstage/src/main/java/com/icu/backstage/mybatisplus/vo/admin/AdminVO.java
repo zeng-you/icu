@@ -9,6 +9,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.icu.backstage.mybatisplus.entity.AdminIdCard;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -65,5 +66,10 @@ public class AdminVO implements Serializable {
      * 所属租户 tenant id
      */
     private Long tenantId;
+
+    /**
+     * 身份证
+     */
+    private AdminIdCard idCard;
 
 }

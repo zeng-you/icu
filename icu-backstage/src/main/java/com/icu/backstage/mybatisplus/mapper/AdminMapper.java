@@ -1,11 +1,11 @@
-package com.icu.backstage.mapper;
+package com.icu.backstage.mybatisplus.mapper;
 
 import com.icu.backstage.mybatisplus.entity.Admin;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>
- * 管理员 Mapper 接口
+ * 管理员
  * </p>
  *
  * @author 曾有

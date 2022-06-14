@@ -47,7 +47,7 @@ class MybatisApplicationTests {
                 .packageConfig((scanner, builder) -> builder.parent("com.icu.backstage"))
 
                 // 策略配置
-                .strategyConfig((scanner, builder) -> builder.addInclude(getTables("menu"))
+                .strategyConfig((scanner, builder) -> builder.addInclude(getTables("admin_id_card"))
                         .controllerBuilder()
                         .enableRestStyle()
                         .enableHyphenStyle()

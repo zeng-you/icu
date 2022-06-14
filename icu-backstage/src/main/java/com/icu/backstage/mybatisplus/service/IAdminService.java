@@ -1,4 +1,4 @@
-package com.icu.backstage.service;
+package com.icu.backstage.mybatisplus.service;
 
 import com.icu.backstage.mybatisplus.entity.Admin;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;

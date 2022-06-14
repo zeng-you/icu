@@ -1,11 +1,11 @@
-package com.icu.backstage.service.impl;
+package com.icu.backstage.mybatisplus.service.impl;
 
 import cn.hutool.core.lang.tree.Tree;
 import cn.hutool.core.lang.tree.TreeNodeConfig;
 import cn.hutool.core.lang.tree.TreeUtil;
 import com.icu.backstage.mybatisplus.entity.Menu;
-import com.icu.backstage.mapper.MenuMapper;
-import com.icu.backstage.service.IMenuService;
+import com.icu.backstage.mybatisplus.mapper.MenuMapper;
+import com.icu.backstage.mybatisplus.service.IMenuService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.common.tool.util.E;
 import lombok.extern.slf4j.Slf4j;

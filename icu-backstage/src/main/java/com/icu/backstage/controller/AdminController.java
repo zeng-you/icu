@@ -2,7 +2,7 @@ package com.icu.backstage.controller;
 
 import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
-import com.icu.backstage.service.IAdminService;
+import com.icu.backstage.mybatisplus.service.IAdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
