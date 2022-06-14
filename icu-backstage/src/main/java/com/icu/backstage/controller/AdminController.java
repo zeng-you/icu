@@ -5,7 +5,10 @@ import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.mybatisplus.service.IAdminService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
@@ -19,7 +22,7 @@ import javax.annotation.Resource;
  */
 @Slf4j
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("admin")
 public class AdminController {
 
     @Resource
@@ -36,7 +39,7 @@ public class AdminController {
     /**
      * 登录详情
      */
-    @GetMapping("login/info")
+    @PostMapping("login/info")
     public AdminVO loginInfo() {
         return iAdminService.loginInfo();
     }

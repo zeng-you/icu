@@ -2,6 +2,7 @@ package com.icu.backstage.controller;
 
 import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;
+import com.icu.backstage.mybatisplus.param.common.IdParam;
 import com.icu.backstage.mybatisplus.service.IMenuService;
 import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +38,7 @@ public class MenuController {
     /**
      * 菜单编辑
      */
-    @PutMapping("edit")
+    @PostMapping("edit")
     public boolean edit(@RequestBody Menu menu)
     {
         return iMenuService.edit(menu);
@@ -46,16 +47,16 @@ public class MenuController {
     /**
      * 菜单删除
      */
-    @DeleteMapping("/del/{id}")
-    public boolean del(@PathVariable Long id)
+    @PostMapping("del")
+    public boolean del(@RequestBody IdParam param)
     {
-        return iMenuService.del(id);
+        return iMenuService.del(param.getId());
     }
 
     /**
      * 菜单树
      */
-    @GetMapping("tree")
+    @PostMapping("tree")
     public List<Tree<String>> tree()
     {
         return iMenuService.tree();
