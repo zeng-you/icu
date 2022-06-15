@@ -8,6 +8,7 @@ import com.icu.backstage.mybatisplus.entity.Admin;
 import com.icu.backstage.mybatisplus.entity.AdminIdCard;
 import com.icu.backstage.mybatisplus.mapper.AdminIdCardMapper;
 import com.icu.backstage.mybatisplus.service.IAdminService;
+import com.icu.backstage.mybatisplus.vo.AdminIdCardVO;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.mybatisplus.mapper.AdminMapper;
 import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;
@@ -88,7 +89,11 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         BeanUtil.copyProperties(admin, adminVO);
 
-        adminVO.setIdCard(idCard);
+        AdminIdCardVO idCardVO = new AdminIdCardVO();
+
+        BeanUtil.copyProperties(idCard, idCardVO);
+
+        adminVO.setIdCard(idCardVO);
 
         return adminVO;
     }

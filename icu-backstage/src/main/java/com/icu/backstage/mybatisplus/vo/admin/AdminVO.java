@@ -1,15 +1,9 @@
 package com.icu.backstage.mybatisplus.vo.admin;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-
 import java.io.Serial;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-import com.icu.backstage.mybatisplus.entity.AdminIdCard;
+import com.icu.backstage.mybatisplus.vo.AdminIdCardVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -70,6 +64,6 @@ public class AdminVO implements Serializable {
     /**
      * 身份证
      */
-    private AdminIdCard idCard;
+    private AdminIdCardVO idCard;
 
 }

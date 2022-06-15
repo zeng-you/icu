@@ -9,23 +9,23 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 菜单
+ * 角色
  * </p>
  *
  * @author 曾有
- * @since 2022-05-18
+ * @since 2022-06-15
  */
-@Getter
-@Setter
+@Data
 @Accessors(chain = true)
-public class Menu implements Serializable {
+public class Role implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -39,53 +39,31 @@ public class Menu implements Serializable {
     private String name;
 
     /**
-     * 权限标识
+     * 标识（安全框架需要）
      */
-    private String permission;
+    private String code;
 
     /**
-     * 组件路径
+     * 备注
      */
-    private String path;
+    private String remark;
 
     /**
-     * 父级id（menu id）
-     */
-    private Long pid;
-
-    /**
-     * 图标
-     */
-    private String icon;
-
-    /**
-     * 排序
-     */
-    private Integer sort;
-
-    /**
-     * 类型（0：左菜单，1：按钮，2：顶菜单）
+     * 类型（0：全部，1：自定义，2：本级及子级，3：本级）
      */
     private String type;
 
     /**
      * 添加时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime addTime;
 
     /**
      * 编辑时间
      */
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
-
-    /**
-     * 删除（0：否，1：是）
-     */
-    private String del;
 
 
 }

@@ -1,14 +1,10 @@
-package com.icu.backstage.mybatisplus.entity;
+package com.icu.backstage.mybatisplus.vo;
 
-import com.baomidou.mybatisplus.annotation.*;
-
-import java.io.Serial;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+
+import java.time.LocalDate;
 
 /**
  * <p>
@@ -21,10 +17,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class AdminIdCard implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = 1L;
+public class AdminIdCardVO {
 
     /**
      * 姓名
@@ -67,12 +60,6 @@ public class AdminIdCard implements Serializable {
     private LocalDate effectiveDeadline;
 
     /**
-     * admin id
-     */
-    @TableId
-    private Long adminId;
-
-    /**
      * 身份证扫描件正面
      */
     private String front;
@@ -96,28 +83,5 @@ public class AdminIdCard implements Serializable {
      * 身份证头像
      */
     private String avatar;
-
-    /**
-     * 添加时间
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime addTime;
-
-    /**
-     * 编辑时间
-     */
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private LocalDateTime editTime;
-
-    /**
-     * 删除（0：否，1：是）
-     */
-    @TableLogic
-    private String del;
-
-    /**
-     * 所属租户 tenant id
-     */
-    private Long tenantId;
 
 }

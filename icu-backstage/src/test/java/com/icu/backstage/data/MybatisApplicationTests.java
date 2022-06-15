@@ -44,10 +44,10 @@ class MybatisApplicationTests {
                 )
 
                 // 包配置
-                .packageConfig((scanner, builder) -> builder.parent("com.icu.backstage"))
+                .packageConfig((scanner, builder) -> builder.parent("com.icu.backstage.mybatisplus"))
 
                 // 策略配置
-                .strategyConfig((scanner, builder) -> builder.addInclude(getTables("admin_id_card"))
+                .strategyConfig((scanner, builder) -> builder.addInclude(getTables("role"))
                         .controllerBuilder()
                         .enableRestStyle()
                         .enableHyphenStyle()

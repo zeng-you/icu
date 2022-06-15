@@ -1,7 +1,7 @@
 package com.icu.backstage.mybatisplus.mapper;
 
+import com.icu.backstage.mybatisplus.entity.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.icu.backstage.mybatisplus.entity.Menu;
 
 /**
  * <p>
@@ -9,8 +9,8 @@ import com.icu.backstage.mybatisplus.entity.Menu;
  * </p>
  *
  * @author 曾有
- * @since 2022-05-18
+ * @since 2022-06-15
  */
-public interface MenuMapper extends BaseMapper<Menu> {
+public interface RoleMapper extends BaseMapper<Role> {
 
 }
