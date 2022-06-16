@@ -95,9 +95,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
      * 角色删除
      */
     @Override
-    public boolean del(@NotNull IdParam param) {
+    public boolean del(long id) {
 
-        boolean del = removeById(param.getId());
+        boolean del = removeById(id);
 
         if (!del) throw new E("角色删除失败");
 

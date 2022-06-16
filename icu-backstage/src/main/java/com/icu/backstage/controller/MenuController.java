@@ -5,6 +5,8 @@ import com.icu.backstage.mybatisplus.entity.Menu;
 import com.icu.backstage.mybatisplus.param.common.IdParam;
 import com.icu.backstage.mybatisplus.service.IMenuService;
 import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -48,7 +50,7 @@ public class MenuController {
      * 菜单删除
      */
     @PostMapping("del")
-    public boolean del(@RequestBody IdParam param)
+    public boolean del(@Validated @RequestBody @NotNull IdParam param)
     {
         return iMenuService.del(param.getId());
     }

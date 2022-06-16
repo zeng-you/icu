@@ -55,7 +55,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IM
      * 菜单删除
      */
     @Override
-    public boolean del(Long id) {
+    public boolean del(long id) {
 
         boolean remove = removeById(id);
 

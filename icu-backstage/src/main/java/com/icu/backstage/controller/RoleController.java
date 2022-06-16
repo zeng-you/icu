@@ -5,6 +5,8 @@ import com.icu.backstage.mybatisplus.param.common.IdParam;
 import com.icu.backstage.mybatisplus.param.role.RoleListParam;
 import com.icu.backstage.mybatisplus.service.IRoleService;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +35,7 @@ public class RoleController {
      * 角色列表
      */
     @PostMapping("lists")
-    public Map<String, Object> lists(@RequestBody RoleListParam param) {
+    public Map<String, Object> lists(@Validated @RequestBody RoleListParam param) {
         return iRoleService.lists(param);
     }
 
@@ -65,8 +67,8 @@ public class RoleController {
      * 角色删除
      */
     @PostMapping("del")
-    public boolean del(@RequestBody IdParam param) {
-        return iRoleService.del(param);
+    public boolean del(@Validated @RequestBody @NotNull IdParam param) {
+        return iRoleService.del(param.getId());
     }
 
 }

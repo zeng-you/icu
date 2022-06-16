@@ -4,6 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 /**
  * <p>
  * 角色列表
@@ -25,12 +28,13 @@ public class RoleListParam {
     /**
      * 当前页
      */
-    private Long current;
+    @Min(value = 1, message = "当前页不能为空")
+    private long current;
 
     /**
      * 每页显示条数
      */
-    private Long size;
-
+    @Min(value = 1, message = "每页显示条数不能为空")
+    private long size;
 
 }

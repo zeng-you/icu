@@ -3,6 +3,7 @@ package com.icu.backstage.mybatisplus.service;
 import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.icu.backstage.mybatisplus.param.common.IdParam;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public interface IMenuService extends IService<Menu> {
     /**
      * 菜单删除
      */
-    boolean del(Long id);
+    boolean del(long id);
 
     /**
      * 菜单树

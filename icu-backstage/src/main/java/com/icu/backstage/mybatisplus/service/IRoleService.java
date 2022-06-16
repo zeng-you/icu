@@ -42,5 +42,5 @@ public interface IRoleService extends IService<Role> {
     /**
      * 角色删除
      */
-    boolean del(IdParam param);
+    boolean del(long id);
 }

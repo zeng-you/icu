@@ -5,6 +5,8 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+import javax.validation.constraints.Min;
+
 /**
  * <p>
  * id
@@ -19,6 +21,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class IdParam {
 
-    private Long id;
+    @Min(value = 1, message = "必要参数出现异常")
+    private long id;
 
 }
