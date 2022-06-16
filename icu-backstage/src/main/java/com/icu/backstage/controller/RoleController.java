@@ -1,6 +1,8 @@
 package com.icu.backstage.controller;
 
-import com.icu.backstage.mybatisplus.param.menu.MenuListParam;
+import com.icu.backstage.mybatisplus.entity.Role;
+import com.icu.backstage.mybatisplus.param.common.IdParam;
+import com.icu.backstage.mybatisplus.param.role.RoleListParam;
 import com.icu.backstage.mybatisplus.service.IRoleService;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,7 +33,7 @@ public class RoleController {
      * 角色列表
      */
     @PostMapping("lists")
-    public Map<String, Object> lists(@RequestBody MenuListParam param) {
+    public Map<String, Object> lists(@RequestBody RoleListParam param) {
         return iRoleService.lists(param);
     }
 
@@ -41,6 +43,30 @@ public class RoleController {
     @PostMapping("all")
     public List<RoleVO> all() {
         return iRoleService.all();
+    }
+
+    /**
+     * 角色编辑
+     */
+    @PostMapping("edit")
+    public boolean edit(@RequestBody Role param) {
+        return iRoleService.edit(param);
+    }
+
+    /**
+     * 角色添加
+     */
+    @PostMapping("add")
+    public boolean add(@RequestBody Role param) {
+        return iRoleService.add(param);
+    }
+
+    /**
+     * 角色删除
+     */
+    @PostMapping("del")
+    public boolean del(@RequestBody IdParam param) {
+        return iRoleService.del(param);
     }
 
 }

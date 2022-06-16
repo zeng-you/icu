@@ -1,4 +1,4 @@
-package com.icu.backstage.mybatisplus.param.menu;
+package com.icu.backstage.mybatisplus.param.role;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -6,7 +6,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 菜单列表
+ * 角色列表
  * </p>
  *
  * @author 曾有
@@ -15,7 +15,7 @@ import lombok.experimental.Accessors;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class MenuListParam {
+public class RoleListParam {
 
     /**
      * 名称

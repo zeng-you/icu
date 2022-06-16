@@ -23,8 +23,12 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.strictInsertFill(metaObject, "addTime" , LocalDateTime::now, LocalDateTime.class);
-        this.strictInsertFill(metaObject, "addAdmin", SaUtil::adminId   , Long.class);
+
+        LocalDateTime time = LocalDateTime.now();
+
+        this.strictInsertFill(metaObject, "addTime" , LocalDateTime.class, time);
+        this.strictInsertFill(metaObject, "editTime", LocalDateTime.class, time);
+        this.strictInsertFill(metaObject, "addAdmin", SaUtil::adminId    , Long.class);
     }
 
     /**

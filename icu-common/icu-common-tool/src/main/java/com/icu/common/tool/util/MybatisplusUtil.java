@@ -12,7 +12,7 @@ import java.util.Map;
  */
 public class MybatisplusUtil {
 
-    public static @NotNull Map<String, Object> list(Object param, Long total) {
+    public static @NotNull Map<String, Object> list(Object param, long total) {
 
         Map<String, Object> data = new HashMap<>();
 

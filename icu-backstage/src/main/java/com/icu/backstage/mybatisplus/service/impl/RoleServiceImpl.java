@@ -7,10 +7,12 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.icu.backstage.mybatisplus.entity.Role;
 import com.icu.backstage.mybatisplus.mapper.RoleMapper;
-import com.icu.backstage.mybatisplus.param.menu.MenuListParam;
+import com.icu.backstage.mybatisplus.param.common.IdParam;
+import com.icu.backstage.mybatisplus.param.role.RoleListParam;
 import com.icu.backstage.mybatisplus.service.IRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
+import com.icu.common.tool.util.E;
 import com.icu.common.tool.util.MybatisplusUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -39,7 +41,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
      * 角色列表
      */
     @Override
-    public Map<String, Object> lists(MenuListParam param) {
+    public Map<String, Object> lists(@NotNull RoleListParam param) {
 
         LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<Role>().orderByDesc(Role::getId);
 
@@ -61,6 +63,45 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements IR
         LambdaQueryWrapper<Role> wrapper = new LambdaQueryWrapper<Role>().orderByDesc(Role::getId);
 
         return roleStream(roleMapper.selectList(wrapper));
+    }
+
+    /**
+     * 角色编辑
+     */
+    @Override
+    public boolean edit(Role param) {
+
+        boolean update = updateById(param);
+
+        if (!update) throw new E("角色编辑失败");
+
+        return true;
+    }
+
+    /**
+     * 角色添加
+     */
+    @Override
+    public boolean add(Role param) {
+
+        boolean save = save(param);
+
+        if (!save) throw new E("角色添加失败");
+
+        return true;
+    }
+
+    /**
+     * 角色删除
+     */
+    @Override
+    public boolean del(@NotNull IdParam param) {
+
+        boolean del = removeById(param.getId());
+
+        if (!del) throw new E("角色删除失败");
+
+        return true;
     }
 
     /**
