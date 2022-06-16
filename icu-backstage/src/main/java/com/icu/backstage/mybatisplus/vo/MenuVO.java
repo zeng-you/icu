@@ -23,7 +23,7 @@ public class MenuVO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private long id;
 
     /**
      * 名称
@@ -43,7 +43,7 @@ public class MenuVO implements Serializable {
     /**
      * 父级id（menu id）
      */
-    private Long pid;
+    private long pid;
 
     /**
      * 图标
@@ -53,7 +53,7 @@ public class MenuVO implements Serializable {
     /**
      * 排序
      */
-    private Integer sort;
+    private int sort;
 
     /**
      * 类型（0：左菜单，1：按钮，2：顶菜单）

@@ -51,7 +51,7 @@ public class Menu implements Serializable {
     /**
      * 父级id（menu id）
      */
-    private Long pid;
+    private long pid;
 
     /**
      * 图标
@@ -61,7 +61,7 @@ public class Menu implements Serializable {
     /**
      * 排序
      */
-    private Integer sort;
+    private int sort;
 
     /**
      * 类型（0：左菜单，1：按钮，2：顶菜单）

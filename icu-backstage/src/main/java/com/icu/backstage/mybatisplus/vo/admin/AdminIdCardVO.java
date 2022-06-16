@@ -77,7 +77,7 @@ public class AdminIdCardVO {
     /**
      * 年龄
      */
-    private Integer age;
+    private int age;
 
     /**
      * 身份证头像

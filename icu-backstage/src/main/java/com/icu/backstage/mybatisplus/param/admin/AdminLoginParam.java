@@ -36,6 +36,6 @@ public class AdminLoginParam {
     /**
      * 所属租户 tenant id
      */
-    private Long tenantId;
+    private long tenantId;
 
 }

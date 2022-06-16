@@ -60,7 +60,7 @@ public class Admin implements Serializable {
     /**
      * 部门 dept id
      */
-    private Long deptId;
+    private long deptId;
 
     /**
      * 添加时间
@@ -89,6 +89,6 @@ public class Admin implements Serializable {
     /**
      * 所属租户 tenant id
      */
-    private Long tenantId;
+    private long tenantId;
 
 }

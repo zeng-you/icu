@@ -72,7 +72,7 @@ public class AdminIdCard implements Serializable {
      * admin id
      */
     @TableId
-    private Long adminId;
+    private long adminId;
 
     /**
      * 身份证扫描件正面
@@ -92,7 +92,7 @@ public class AdminIdCard implements Serializable {
     /**
      * 年龄
      */
-    private Integer age;
+    private int age;
 
     /**
      * 身份证头像
@@ -119,6 +119,6 @@ public class AdminIdCard implements Serializable {
     /**
      * 所属租户 tenant id
      */
-    private Long tenantId;
+    private long tenantId;
 
 }

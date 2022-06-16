@@ -23,7 +23,7 @@ public class AdminVO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Long id;
+    private long id;
 
     /**
      * 手机号码
@@ -58,7 +58,7 @@ public class AdminVO implements Serializable {
     /**
      * 所属租户 tenant id
      */
-    private Long tenantId;
+    private long tenantId;
 
     /**
      * 身份证

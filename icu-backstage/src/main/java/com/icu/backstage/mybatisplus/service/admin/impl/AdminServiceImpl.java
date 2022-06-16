@@ -46,7 +46,7 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
 
         LambdaQueryWrapper<Admin> wrapper = new LambdaQueryWrapper<Admin>().eq(Admin::getPhone, param.getPhone());
 
-        if (param.getTenantId() != null) {
+        if (param.getTenantId() != 0) {
             wrapper.eq(Admin::getTenantId, param.getTenantId());
         }
 
