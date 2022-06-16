@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -30,7 +31,7 @@ public class RoleController {
      * 角色列表
      */
     @PostMapping("lists")
-    public IPage<Role> lists() {
+    public Map<String, Object> lists() {
         return iRoleService.lists();
     }
 

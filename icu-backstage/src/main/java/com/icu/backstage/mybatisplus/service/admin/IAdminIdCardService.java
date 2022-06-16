@@ -1,7 +1,7 @@
-package com.icu.backstage.mybatisplus.service;
+package com.icu.backstage.mybatisplus.service.admin;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.icu.backstage.mybatisplus.entity.AdminIdCard;
+import com.icu.backstage.mybatisplus.entity.admin.AdminIdCard;
 
 /**
  * <p>

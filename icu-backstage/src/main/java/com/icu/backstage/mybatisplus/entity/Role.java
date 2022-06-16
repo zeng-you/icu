@@ -10,9 +10,6 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 import lombok.experimental.Accessors;
 
 /**
@@ -65,5 +62,9 @@ public class Role implements Serializable {
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime editTime;
 
+    /**
+     * 删除（0：否，1：是）
+     */
+    private String del;
 
 }

@@ -3,7 +3,6 @@ package com.icu.backstage.mybatisplus.vo.admin;
 import java.io.Serial;
 import java.io.Serializable;
 
-import com.icu.backstage.mybatisplus.vo.AdminIdCardVO;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

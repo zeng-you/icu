@@ -1,4 +1,4 @@
-package com.icu.backstage.mybatisplus.vo;
+package com.icu.backstage.mybatisplus.vo.admin;
 
 import lombok.Getter;
 import lombok.Setter;

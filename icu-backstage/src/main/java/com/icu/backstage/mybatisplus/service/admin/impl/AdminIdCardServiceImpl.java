@@ -1,9 +1,9 @@
-package com.icu.backstage.mybatisplus.service.impl;
+package com.icu.backstage.mybatisplus.service.admin.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.icu.backstage.mybatisplus.mapper.AdminIdCardMapper;
-import com.icu.backstage.mybatisplus.entity.AdminIdCard;
-import com.icu.backstage.mybatisplus.service.IAdminIdCardService;
+import com.icu.backstage.mybatisplus.entity.admin.AdminIdCard;
+import com.icu.backstage.mybatisplus.service.admin.IAdminIdCardService;
 import org.springframework.stereotype.Service;
 
 /**

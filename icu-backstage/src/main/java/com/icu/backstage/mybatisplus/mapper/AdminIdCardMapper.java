@@ -1,7 +1,7 @@
 package com.icu.backstage.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.icu.backstage.mybatisplus.entity.AdminIdCard;
+import com.icu.backstage.mybatisplus.entity.admin.AdminIdCard;
 
 /**
  * <p>

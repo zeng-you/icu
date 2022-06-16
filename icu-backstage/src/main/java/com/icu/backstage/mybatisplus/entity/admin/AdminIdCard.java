@@ -1,11 +1,13 @@
-package com.icu.backstage.mybatisplus.entity;
-
-import com.baomidou.mybatisplus.annotation.*;
+package com.icu.backstage.mybatisplus.entity.admin;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import com.baomidou.mybatisplus.annotation.FieldFill;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
@@ -112,7 +114,6 @@ public class AdminIdCard implements Serializable {
     /**
      * 删除（0：否，1：是）
      */
-    @TableLogic
     private String del;
 
     /**

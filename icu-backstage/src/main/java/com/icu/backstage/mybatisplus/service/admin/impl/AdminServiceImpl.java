@@ -1,14 +1,14 @@
-package com.icu.backstage.mybatisplus.service.impl;
+package com.icu.backstage.mybatisplus.service.admin.impl;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.icu.backstage.mybatisplus.entity.Admin;
-import com.icu.backstage.mybatisplus.entity.AdminIdCard;
+import com.icu.backstage.mybatisplus.entity.admin.Admin;
+import com.icu.backstage.mybatisplus.entity.admin.AdminIdCard;
 import com.icu.backstage.mybatisplus.mapper.AdminIdCardMapper;
-import com.icu.backstage.mybatisplus.service.IAdminService;
-import com.icu.backstage.mybatisplus.vo.AdminIdCardVO;
+import com.icu.backstage.mybatisplus.service.admin.IAdminService;
+import com.icu.backstage.mybatisplus.vo.admin.AdminIdCardVO;
 import com.icu.backstage.mybatisplus.vo.admin.AdminVO;
 import com.icu.backstage.mybatisplus.mapper.AdminMapper;
 import com.icu.backstage.mybatisplus.param.admin.AdminLoginParam;

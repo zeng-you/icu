@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -20,6 +21,6 @@ public interface IRoleService extends IService<Role> {
     /**
      * 角色列表
      */
-    IPage<Role> lists();
+    Map<String, Object> lists();
 
 }
