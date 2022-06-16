@@ -1,10 +1,10 @@
 package com.icu.backstage.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.icu.backstage.mybatisplus.entity.Role;
+import com.icu.backstage.mybatisplus.param.menu.MenuListParam;
 import com.icu.backstage.mybatisplus.service.IRoleService;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,8 +31,16 @@ public class RoleController {
      * 角色列表
      */
     @PostMapping("lists")
-    public Map<String, Object> lists() {
-        return iRoleService.lists();
+    public Map<String, Object> lists(@RequestBody MenuListParam param) {
+        return iRoleService.lists(param);
+    }
+
+    /**
+     * 角色所有
+     */
+    @PostMapping("all")
+    public List<RoleVO> all() {
+        return iRoleService.all();
     }
 
 }

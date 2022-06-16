@@ -1,8 +1,8 @@
 package com.icu.backstage.mybatisplus.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.icu.backstage.mybatisplus.entity.Role;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.icu.backstage.mybatisplus.param.menu.MenuListParam;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
 
 import java.util.List;
@@ -21,6 +21,10 @@ public interface IRoleService extends IService<Role> {
     /**
      * 角色列表
      */
-    Map<String, Object> lists();
+    Map<String, Object> lists(MenuListParam param);
 
+    /**
+     * 角色所有
+     */
+    List<RoleVO> all();
 }
