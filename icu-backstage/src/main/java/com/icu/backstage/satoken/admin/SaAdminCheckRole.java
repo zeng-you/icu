@@ -22,18 +22,25 @@ public @interface SaAdminCheckRole {
 
     /**
      * 需要校验的角色标识
-     *
      * @return 需要校验的角色标识
      */
-    @AliasFor(annotation = SaCheckRole.class)
-    String[] value() default {};
+    String [] value() default {};
 
     /**
      * 验证模式：AND | OR，默认AND
-     *
      * @return 验证模式
      */
-    @AliasFor(annotation = SaCheckRole.class)
     SaMode mode() default SaMode.AND;
+
+    /**
+     * 账号类型
+     * <p> 建议使用常量，避免因错误拼写带来的bug
+     * @return see note
+     */
+    String type() default "";
+
+
+
+
 
 }

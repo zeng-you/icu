@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Getter;
@@ -72,7 +71,7 @@ public class AdminIdCard implements Serializable {
     /**
      * admin id
      */
-    @TableId
+    @TableId(value = "admin_id")
     private Long adminId;
 
     /**
