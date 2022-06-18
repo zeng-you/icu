@@ -45,7 +45,9 @@ public class StpInterfaceConfig implements StpInterface {
 
         // 本list仅做模拟，实际项目中要根据具体业务逻辑来查询角色
         List<String> list = new ArrayList<>();
+
         list.add("admin");
+
         return list;
     }
 

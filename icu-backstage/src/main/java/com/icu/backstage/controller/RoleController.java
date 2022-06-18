@@ -5,6 +5,7 @@ import com.icu.backstage.mybatisplus.param.common.IdParam;
 import com.icu.backstage.mybatisplus.param.role.RoleListParam;
 import com.icu.backstage.mybatisplus.service.IRoleService;
 import com.icu.backstage.mybatisplus.vo.RoleVO;
+import com.icu.backstage.satoken.admin.SaAdminCheckPermission;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,6 +51,7 @@ public class RoleController {
     /**
      * 角色编辑
      */
+    @SaAdminCheckPermission(value = "role_edit", orRole = "admin")
     @PostMapping("edit")
     public boolean edit(@RequestBody Role param) {
         return iRoleService.edit(param);
@@ -58,6 +60,7 @@ public class RoleController {
     /**
      * 角色添加
      */
+    @SaAdminCheckPermission(value = "role_add", orRole = "admin")
     @PostMapping("add")
     public boolean add(@RequestBody Role param) {
         return iRoleService.add(param);
@@ -66,6 +69,7 @@ public class RoleController {
     /**
      * 角色删除
      */
+    @SaAdminCheckPermission(value = "role_del", orRole = "admin")
     @PostMapping("del")
     public boolean del(@Validated @RequestBody @NotNull IdParam param) {
         return iRoleService.del(param.getId());

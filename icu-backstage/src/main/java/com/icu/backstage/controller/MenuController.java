@@ -1,6 +1,5 @@
 package com.icu.backstage.controller;
 
-import cn.dev33.satoken.annotation.SaCheckPermission;
 import cn.hutool.core.lang.tree.Tree;
 import com.icu.backstage.mybatisplus.entity.Menu;
 import com.icu.backstage.mybatisplus.param.common.IdParam;
@@ -31,6 +30,7 @@ public class MenuController {
     /**
      * 菜单添加
      */
+    @SaAdminCheckPermission(value = "menu_add", orRole = "admin")
     @PostMapping("add")
     public boolean add(@RequestBody Menu menu)
     {
@@ -40,7 +40,7 @@ public class MenuController {
     /**
      * 菜单编辑
      */
-    @SaAdminCheckPermission(value = "menu_edit", orRole = "admin1")
+    @SaAdminCheckPermission(value = "menu_edit", orRole = "admin")
     @PostMapping("edit")
     public boolean edit(@RequestBody Menu menu)
     {
@@ -50,6 +50,7 @@ public class MenuController {
     /**
      * 菜单删除
      */
+    @SaAdminCheckPermission(value = "menu_del", orRole = "admin")
     @PostMapping("del")
     public boolean del(@Validated @RequestBody @NotNull IdParam param)
     {
