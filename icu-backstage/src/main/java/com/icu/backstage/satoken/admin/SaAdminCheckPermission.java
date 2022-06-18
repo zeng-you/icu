@@ -35,13 +35,6 @@ public @interface SaAdminCheckPermission {
     SaMode mode() default SaMode.AND;
 
     /**
-     * 多账号体系下所属的账号体系标识
-     * @return see note
-     */
-    @AliasFor(annotation = SaCheckPermission.class)
-    String type() default "admin";
-
-    /**
      * 在权限认证不通过时的次要选择，两者只要其一认证成功即可通过校验
      *
      * <p>

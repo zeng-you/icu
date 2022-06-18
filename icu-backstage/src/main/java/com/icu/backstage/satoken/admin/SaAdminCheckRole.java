@@ -34,12 +34,4 @@ public @interface SaAdminCheckRole {
     @AliasFor(annotation = SaCheckRole.class)
     SaMode mode() default SaMode.AND;
 
-    /**
-     * 账号类型
-     * <p> 建议使用常量，避免因错误拼写带来的bug
-     * @return see note
-     */
-    @AliasFor(annotation = SaCheckRole.class)
-    String type() default "admin";
-
 }

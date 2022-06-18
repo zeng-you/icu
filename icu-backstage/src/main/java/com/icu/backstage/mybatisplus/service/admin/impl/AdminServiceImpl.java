@@ -1,6 +1,7 @@
 package com.icu.backstage.mybatisplus.service.admin.impl;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
+import cn.dev33.satoken.stp.SaLoginConfig;
 import cn.dev33.satoken.stp.StpUtil;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -60,7 +61,10 @@ public class AdminServiceImpl extends ServiceImpl<AdminMapper, Admin> implements
             throw new E("账号已经被禁用");
         }
 
-        StpAdminUtil.login(adminOne.getId());
+        StpAdminUtil.login(adminOne.getId(), SaLoginConfig
+                .setExtra("role", "admin"));
+
+        log.info("------管理员登录-----{}", StpAdminUtil.getExtra("role"));
 
         return infoBase(adminOne).setToken(StpUtil.getTokenValue());
     }
