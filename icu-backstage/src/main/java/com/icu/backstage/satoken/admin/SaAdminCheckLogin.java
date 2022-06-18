@@ -1,6 +1,8 @@
 package com.icu.backstage.satoken.admin;
 
 import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckRole;
+import org.springframework.core.annotation.AliasFor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,13 +17,14 @@ import java.lang.annotation.Target;
  */
 @SaCheckLogin(type = StpAdminUtil.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ ElementType.METHOD, ElementType.TYPE })
 public @interface SaAdminCheckLogin {
 
     /**
      * 多账号体系下所属的账号体系标识
      * @return see note
      */
-    String type() default "";
+    @AliasFor(annotation = SaCheckLogin.class)
+    String type() default "admin";
 
 }

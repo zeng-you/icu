@@ -2,6 +2,7 @@ package com.icu.backstage.mybatisplus.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.icu.backstage.util.SaUtil;
+import com.icu.common.tool.util.TimeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
@@ -24,10 +25,10 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
 
-        LocalDateTime time = LocalDateTime.now();
+        LocalDateTime localDateTime = TimeUtil.localDateTime();
 
-        this.strictInsertFill(metaObject, "addTime" , LocalDateTime.class, time);
-        this.strictInsertFill(metaObject, "editTime", LocalDateTime.class, time);
+        this.strictInsertFill(metaObject, "addTime" , LocalDateTime.class, localDateTime);
+        this.strictInsertFill(metaObject, "editTime", LocalDateTime.class, localDateTime);
         this.strictInsertFill(metaObject, "addAdmin", SaUtil::adminId    , Long.class);
     }
 
@@ -36,7 +37,7 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
      */
     @Override
     public void updateFill(MetaObject metaObject) {
-        this.strictUpdateFill(metaObject, "editTime" , LocalDateTime::now, LocalDateTime.class);
+        this.strictUpdateFill(metaObject, "editTime", LocalDateTime.class, TimeUtil.localDateTime());
     }
 
 

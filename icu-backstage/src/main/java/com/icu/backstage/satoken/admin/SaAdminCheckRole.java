@@ -17,19 +17,21 @@ import java.lang.annotation.Target;
  */
 @SaCheckRole(type = StpAdminUtil.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD,ElementType.TYPE})
 public @interface SaAdminCheckRole {
 
     /**
      * 需要校验的角色标识
      * @return 需要校验的角色标识
      */
+    @AliasFor(annotation = SaCheckRole.class)
     String [] value() default {};
 
     /**
      * 验证模式：AND | OR，默认AND
      * @return 验证模式
      */
+    @AliasFor(annotation = SaCheckRole.class)
     SaMode mode() default SaMode.AND;
 
     /**
@@ -37,10 +39,7 @@ public @interface SaAdminCheckRole {
      * <p> 建议使用常量，避免因错误拼写带来的bug
      * @return see note
      */
-    String type() default "";
-
-
-
-
+    @AliasFor(annotation = SaCheckRole.class)
+    String type() default "admin";
 
 }

@@ -17,26 +17,29 @@ import java.lang.annotation.Target;
  */
 @SaCheckPermission(type = StpAdminUtil.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.METHOD, ElementType.TYPE})
+@Target({ElementType.METHOD,ElementType.TYPE})
 public @interface SaAdminCheckPermission {
 
     /**
      * 需要校验的权限码
      * @return 需要校验的权限码
      */
+    @AliasFor(annotation = SaCheckPermission.class)
     String [] value() default {};
 
     /**
      * 验证模式：AND | OR，默认AND
      * @return 验证模式
      */
+    @AliasFor(annotation = SaCheckPermission.class)
     SaMode mode() default SaMode.AND;
 
     /**
      * 多账号体系下所属的账号体系标识
      * @return see note
      */
-    String type() default "";
+    @AliasFor(annotation = SaCheckPermission.class)
+    String type() default "admin";
 
     /**
      * 在权限认证不通过时的次要选择，两者只要其一认证成功即可通过校验
@@ -53,6 +56,7 @@ public @interface SaAdminCheckPermission {
      *
      * @return /
      */
+    @AliasFor(annotation = SaCheckPermission.class)
     String[] orRole() default {};
 
 }

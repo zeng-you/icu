@@ -31,8 +31,6 @@ public class MenuController {
     /**
      * 菜单添加
      */
-    @SaAdminCheckPermission("menu/add")
-    @SaCheckPermission(value = "user-add", orRole = "admin")
     @PostMapping("add")
     public boolean add(@RequestBody Menu menu)
     {
@@ -42,6 +40,7 @@ public class MenuController {
     /**
      * 菜单编辑
      */
+    @SaAdminCheckPermission(value = "menu_edit", orRole = "admin1")
     @PostMapping("edit")
     public boolean edit(@RequestBody Menu menu)
     {
