@@ -57,4 +57,9 @@ public class Role implements Serializable {
      */
     private String del;
 
+    /**
+     * 所属租户 tenant id
+     */
+    private long tenantId;
+
 }

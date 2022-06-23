@@ -10,7 +10,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 角色认证(User版)：必须具有指定角色标识才能进入该方法，可标注在函数、类上（效果等同于标注在此类的所有方法上）
+ * 角色认证(Admin版)：必须具有指定角色标识才能进入该方法，可标注在函数、类上（效果等同于标注在此类的所有方法上）
  *
  * @author 曾有
  * @since 2022/5/26

@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
@@ -17,10 +17,12 @@ spring:
 
 mybatis-plus:
   global-config:
+    banner: false
     db-config:
       logic-delete-field: del
 
 sa-token:
+  isPrint: false
   jwt-secret-key: satoken
 
 logging:
