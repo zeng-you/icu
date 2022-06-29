@@ -1,7 +1,9 @@
 server:
-  port: 8082
+  port: 8081
 
 spring:
+  main:
+    banner-mode: off
   application:
     name: icu-backstage
   profiles:

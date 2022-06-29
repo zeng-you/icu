@@ -12,7 +12,7 @@
  Target Server Version : 140002
  File Encoding         : 65001
 
- Date: 17/06/2022 17:38:13
+ Date: 29/06/2022 10:35:30
 */
 
 
@@ -180,9 +180,9 @@ COMMENT ON TABLE "public"."menu" IS '菜单';
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
+INSERT INTO "public"."menu" VALUES (38, '', '', '', 0, '', 0, '1', '2022-06-14 15:11:25', '2022-06-18 17:00:13', '0');
 INSERT INTO "public"."menu" VALUES (2, '菜单管理', '', 'menu/list', 1, '', 0, '0', NULL, NULL, '0');
 INSERT INTO "public"."menu" VALUES (3, '菜单添加', '', 'menu/add', 2, '', 0, '1', NULL, NULL, '0');
-INSERT INTO "public"."menu" VALUES (38, '', '', '', 0, '', 0, '1', '2022-06-14 15:11:25', '2022-06-15 09:50:23', '1');
 INSERT INTO "public"."menu" VALUES (1, '权限管理', '', '', 0, '', 0, '0', NULL, '2022-06-14 15:35:33', '0');
 
 -- ----------------------------
@@ -195,7 +195,8 @@ CREATE TABLE "public"."role" (
   "remark" varchar(255) COLLATE "pg_catalog"."default" DEFAULT ''::character varying,
   "add_time" timestamp(0),
   "edit_time" timestamp(0),
-  "del" char(1) COLLATE "pg_catalog"."default" DEFAULT 0
+  "del" char(1) COLLATE "pg_catalog"."default" DEFAULT 0,
+  "tenant_id" int8 DEFAULT 0
 )
 ;
 COMMENT ON COLUMN "public"."role"."name" IS '名称';
@@ -203,17 +204,17 @@ COMMENT ON COLUMN "public"."role"."remark" IS '备注';
 COMMENT ON COLUMN "public"."role"."add_time" IS '添加时间';
 COMMENT ON COLUMN "public"."role"."edit_time" IS '编辑时间';
 COMMENT ON COLUMN "public"."role"."del" IS '删除（0：否，1：是）';
+COMMENT ON COLUMN "public"."role"."tenant_id" IS '所属租户 tenant id';
 COMMENT ON TABLE "public"."role" IS '角色';
 
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO "public"."role" VALUES (3, '角色3', '', '2022-06-16 16:16:44', '2022-06-16 16:29:52', '1');
-INSERT INTO "public"."role" VALUES (4, '角色3', '', '2022-06-16 16:21:06', '2022-06-16 16:30:48', '1');
-INSERT INTO "public"."role" VALUES (5, '角色22', '', '2022-06-16 17:15:36', '2022-06-16 17:15:36', '0');
-INSERT INTO "public"."role" VALUES (1, '角色22', '', NULL, '2022-06-16 17:25:58', '1');
-INSERT INTO "public"."role" VALUES (2, '角色2', '', NULL, '2022-06-16 17:39:44', '1');
-INSERT INTO "public"."role" VALUES (0, '角色22', '', '2022-06-16 17:52:38', '2022-06-16 17:52:38', '0');
+INSERT INTO "public"."role" VALUES (3, '角色3', '', '2022-06-16 16:16:44', '2022-06-16 16:29:52', '1', 0);
+INSERT INTO "public"."role" VALUES (4, '角色3', '', '2022-06-16 16:21:06', '2022-06-16 16:30:48', '1', 0);
+INSERT INTO "public"."role" VALUES (5, '角色22', '', '2022-06-16 17:15:36', '2022-06-16 17:15:36', '0', 0);
+INSERT INTO "public"."role" VALUES (1, '角色22', '', NULL, '2022-06-16 17:25:58', '1', 0);
+INSERT INTO "public"."role" VALUES (2, '角色2', '', NULL, '2022-06-16 17:39:44', '1', 0);
 
 -- ----------------------------
 -- Table structure for tenant
@@ -285,9 +286,6 @@ ALTER TABLE "public"."admin" ADD CONSTRAINT "sys_user_pkey" PRIMARY KEY ("id");
 -- ----------------------------
 -- Indexes structure for table admin_id_card
 -- ----------------------------
-CREATE INDEX "admin_id_card_admin_id_idx" ON "public"."admin_id_card" USING btree (
-  "admin_id" "pg_catalog"."int8_ops" ASC NULLS LAST
-);
 CREATE INDEX "admin_id_card_del_idx" ON "public"."admin_id_card" USING btree (
   "del" COLLATE "pg_catalog"."default" "pg_catalog"."bpchar_ops" ASC NULLS LAST
 );
@@ -315,11 +313,21 @@ ALTER TABLE "public"."menu" ADD CONSTRAINT "menu_pkey" PRIMARY KEY ("id");
 CREATE INDEX "role_del_idx" ON "public"."role" USING btree (
   "del" COLLATE "pg_catalog"."default" "pg_catalog"."bpchar_ops" ASC NULLS LAST
 );
+CREATE INDEX "role_tenant_id_idx" ON "public"."role" USING btree (
+  "tenant_id" "pg_catalog"."int8_ops" ASC NULLS LAST
+);
 
 -- ----------------------------
 -- Primary Key structure for table role
 -- ----------------------------
 ALTER TABLE "public"."role" ADD CONSTRAINT "role_pkey" PRIMARY KEY ("id");
+
+-- ----------------------------
+-- Indexes structure for table tenant
+-- ----------------------------
+CREATE INDEX "tenant_del_idx" ON "public"."tenant" USING btree (
+  "del" COLLATE "pg_catalog"."default" "pg_catalog"."bpchar_ops" ASC NULLS LAST
+);
 
 -- ----------------------------
 -- Primary Key structure for table tenant
